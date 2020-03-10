@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    // Projectile speeds
-    public float enemySpeed = 40;
+    // Enemy speed
+    [SerializeField] float enemySpeed = 1;
 
     // Start is called before the first frame update
     void Start()
