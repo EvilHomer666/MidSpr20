@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    // Spawn manager array and other variables
+    // Spawn manager array for enemies
     public GameObject[] enemyPrefabs;
-    private float spawnRangeX = 19;
-    private float spawnPosZ = 20;
-    private float startDelay = 2;
-    private float spawnInterval = 1.5f;
+
+    private float spawnPosX = 20f;
+    private float spawnRangeY = 13.0f;
+    private float spawnPosZ = -3.0f;
+
+    [SerializeField] float startDelay = 2;
+    [SerializeField] float spawnInterval = 1;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        // Method to call a function at a certain time - in this case every 2 seconds, then every 1.5 seconds
+        // Method to call a function at a certain time
 
         InvokeRepeating("SpawnRandomEnemy", startDelay, spawnInterval);
-
     }
 
     // Update is called once per frame
@@ -30,10 +33,9 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnRandomEnemy()
     {
-        // Randomly generate enemy index and spawn position
+        // Randomly generate enemies
         int enemyIndex = Random.Range(0, enemyPrefabs.Length);
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
-
+        Vector3 spawnPos = new Vector3(spawnPosX, Random.Range (-spawnRangeY, spawnRangeY), spawnPosZ);
         Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
     }
 }
