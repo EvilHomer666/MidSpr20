@@ -9,6 +9,10 @@ TagManager:
   - Nebula
   - Hazard
   - Barrier
+  - Lv3
+  - Lv2
+  - Lv1
+  - PlayerEngines
   layers:
   - Default
   - TransparentFX

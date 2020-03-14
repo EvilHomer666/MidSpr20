@@ -12,13 +12,13 @@ public class PlayerController : MonoBehaviour
     private float yRange = 13.0f;
     private AudioSource audioSource;
 
-    //Projectile game object prefab variable
-    public GameObject projectilePrefab;
+    // Weapons array
+    public Transform[] cannons;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -54,10 +54,14 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.up * verticalInput * Time.deltaTime * speed);
 
 
-        // Projectile launch condition
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        // Projectile launch condition with for each element to read array
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            foreach(var projectile in cannons)
+            {
+                Instantiate(projectile, transform.position, projectile.transform.rotation);
+            }
+
             GetComponent<AudioSource>().Play();
         }
     }
