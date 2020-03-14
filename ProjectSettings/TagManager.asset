@@ -13,6 +13,7 @@ TagManager:
   - Lv2
   - Lv1
   - PlayerEngines
+  - PlayerExplotion
   layers:
   - Default
   - TransparentFX

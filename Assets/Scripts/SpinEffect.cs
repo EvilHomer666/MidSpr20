@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpinEffect : MonoBehaviour
 {
-    private float spinSpeed = 20.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +13,6 @@ public class SpinEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.back, spinSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.back, Random.Range(20.0f, 60.0f) * Time.deltaTime);
     }
 }

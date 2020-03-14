@@ -5,12 +5,14 @@ using UnityEngine;
 public class DetectCollisions : MonoBehaviour
 {
     private EnemyMovement stopEnemyMovement;
+    private GameManager addScore;
 
     // Start is called before the first frame update
     void Start()
     {
         // Reference scripts
         stopEnemyMovement = GetComponent<EnemyMovement>();
+        addScore = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -30,8 +32,11 @@ public class DetectCollisions : MonoBehaviour
             // Get access to the instance's rigid body
             Rigidbody rb = GetComponent<Rigidbody>();
 
+            addScore.score += 1;
             Destroy(gameObject);
             Destroy(other.gameObject);
+
+
         }
     }
 }
