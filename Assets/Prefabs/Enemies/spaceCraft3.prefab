@@ -157,6 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b170dbfa4d3f428458277364ab469e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHitPoints: 1
+  playerExplosion: {fileID: 6480039668675574283, guid: ca1ea711c5563de4ba45ec3e86313fe9,
+    type: 3}
 --- !u!114 &1145044464100138498
 MonoBehaviour:
   m_ObjectHideFlags: 0

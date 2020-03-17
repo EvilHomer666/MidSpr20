@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26ed5b275b73c345962a5490ffdefb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 8
+  enemySpeed: 10
 --- !u!65 &7602078617052042971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b170dbfa4d3f428458277364ab469e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHitPoints: 2
+  playerExplosion: {fileID: 6480039668675574283, guid: ca1ea711c5563de4ba45ec3e86313fe9,
+    type: 3}
 --- !u!54 &802150544448439465
 Rigidbody:
   m_ObjectHideFlags: 0

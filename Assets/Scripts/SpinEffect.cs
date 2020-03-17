@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpinEffect : MonoBehaviour
 {
+    [SerializeField] int spinSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,6 @@ public class SpinEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.back, Random.Range(20.0f, 60.0f) * Time.deltaTime);
+        transform.Rotate(Vector3.forward, Random.Range(20.0f, 60.0f) * spinSpeed * Time.deltaTime);
     }
 }

@@ -4,69 +4,69 @@ using UnityEngine;
 
 public class DetectPlayerCollisions : MonoBehaviour
 {
-    private PlayerController stopPlayerMovement;
-
-    // Player hit points
-    public int maxHitPoints = 3; 
-    public int currentHitPoints;
+    // Player hit points 666
+    private int maxHitPoints = 3; 
+    public int playerCurrentHitPoints;
+    [SerializeField] GameObject playerExplosion;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Reference scripts
-        stopPlayerMovement = GetComponent<PlayerController>();
-
         // Set hit points value at start
-        currentHitPoints = maxHitPoints;
-    }
-
-    // On trigger enter function over-ride - Destroy target and projectile on collision
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "EnemyShip, Hazard, EnemyFire") // TO DO << add enemy ability to shit at player
-        {
-            Debug.Log("Collision!");
-
-            //stopCollision.enabled = false;
-
-            // Get access to the instance's rigid body
-            //Rigidbody rb = GetComponent<Rigidbody>();
-
-            currentHitPoints -= 1;
-            Destroy(other.gameObject);
-        }
-
-        else if (currentHitPoints < 1)
-        {
-            stopPlayerMovement.enabled = false;
-            Destroy(gameObject);
-            GameObject.Find("ParticleBurst").GetComponent<ParticleSystem>().Play();
-            Debug.Log("You're dead!)");
-        }
+        playerCurrentHitPoints = maxHitPoints;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         // Particle system/engine health mechanic
 
-        if (currentHitPoints == 3)
+        if (playerCurrentHitPoints == 3)
         {
             GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Play();
             GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Stop();
             GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Stop();
         }
-        if (currentHitPoints == 2)
+        if (playerCurrentHitPoints == 2)
         {
             GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
             GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Play();
             GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Stop();
         }
-        if (currentHitPoints == 1)
+        if (playerCurrentHitPoints == 1)
         {
             GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
             GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Stop();
             GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Play();
+        }
+
+        // Player hit points check
+        if (playerCurrentHitPoints < 1)
+        {
+            Instantiate(playerExplosion, transform.position, transform.rotation);
+            GameObject.Find("ParticleBurst").GetComponent<ParticleSystem>().Play();
+            Destroy(gameObject);
+            // TO DO << run game over function script
+        }
+    }
+
+    // On trigger enter function to detect collisions with enemy/hazard and take damage
+    private void OnTriggerEnter(Collider other)
+    {
+        // Enemies and hazard damage check
+        if (other.gameObject.tag == "EnemyShip") // TO DO << add enemy ability to shot at player
+        {
+            Debug.Log("Collision!");
+            playerCurrentHitPoints -= 1;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Hazard")
+        {
+            Debug.Log("Collision!");
+            playerCurrentHitPoints -= 2;
+            Destroy(other.gameObject);
         }
     }
 }

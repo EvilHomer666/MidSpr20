@@ -12,30 +12,34 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text gameOverText;
     [SerializeField] Text quitGameText;
 
-    public int score; // TO DO << store score in a list for later viewing
     private bool tryAgain;
     private bool gameOver;
 
     private DetectPlayerCollisions playerStatus;
+    private ScoreManager currentScore;
 
     // Start is called before the first frame update
     void Start()
     {
         // Set UI defaults
-        score = 0;
+        
         gameOver = false;
         tryAgain = false;
         gameOverText.text = "";
         tryAgainText.text = "";
         quitGameText.text = "";
+        scoreText.text = "";
 
         // Reference to player collisions script
         playerStatus = GetComponent<DetectPlayerCollisions>();
+        currentScore = GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Game Over and Continue checks
+
         if(gameOver == true)
         {
             // Condition to try again
@@ -50,25 +54,29 @@ public class GameManager : MonoBehaviour
                 Application.Quit();
             }
         }
-
     }
 
-    // Custom method to increment score/damage
+    // Custom method to update text for score/damage
     public void incrementScore()
     {
-        UpdateUI();
+        UpdateUI(); // TO DO <<< Update the UI when game over
 
         // Game Over condition
-        if (playerStatus.currentHitPoints < 1)
+        if (playerStatus.playerCurrentHitPoints < 1)
         {
             Debug.Log("Game Over!");
            // SceneManager.LoadScene(SceneManager.GetSceneByName("HighScores")); TO DO << load scores screen after game over after 5 seconds
         }
     }
 
-    // Custom method to update text
+    // Custom method to update text for score and win/game over
     public void UpdateUI()
     {
-        scoreText.text = $"{score}";
+        // << TO DO add game over update screen
+    }
+
+    public void UpdateScore()
+    {
+        scoreText.text = $"{currentScore}";
     }
 }

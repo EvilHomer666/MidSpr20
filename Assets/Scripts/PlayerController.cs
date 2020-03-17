@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Movement variables
+    [SerializeField] Transform cannonSpawn;
     private float horizontalInput;
     private float verticalInput;
     public float speed = 10.0f;
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check for horizontal & vertical movement boundaries
+        // Check for horizontal & vertical player movement boundaries
         if (transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
@@ -59,9 +60,8 @@ public class PlayerController : MonoBehaviour
         {
             foreach(var projectile in cannons)
             {
-                Instantiate(projectile, transform.position, projectile.transform.rotation);
+                Instantiate(projectile, cannonSpawn.position, cannonSpawn.rotation);
             }
-
             GetComponent<AudioSource>().Play();
         }
     }
