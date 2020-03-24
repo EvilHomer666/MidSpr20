@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class DetectPlayerCollisions : MonoBehaviour
 {
-    // Player hit points 666
-    private int maxHitPoints = 3; 
-    public int playerCurrentHitPoints;
     [SerializeField] GameObject playerExplosion;
+
+    public int playerCurrentHitPoints;
+
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         // Set hit points value at start
-        playerCurrentHitPoints = maxHitPoints;
+        gameManager = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         // Particle system/engine health mechanic
-
         if (playerCurrentHitPoints == 3)
         {
             GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Play();
@@ -44,10 +43,11 @@ public class DetectPlayerCollisions : MonoBehaviour
         // Player hit points check
         if (playerCurrentHitPoints < 1)
         {
+            // Instantiate VFX and SFX on player death
             Instantiate(playerExplosion, transform.position, transform.rotation);
             GameObject.Find("ParticleBurst").GetComponent<ParticleSystem>().Play();
             Destroy(gameObject);
-            // TO DO << run game over function script
+            // TO DO << call game over function script
         }
     }
 

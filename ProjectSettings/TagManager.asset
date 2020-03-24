@@ -14,6 +14,13 @@ TagManager:
   - Lv1
   - PlayerEngines
   - Player Explosion
+  - EnemyProjectile
+  - Health
+  - Speed
+  - GameManager
+  - Try Again
+  - Game Over
+  - Score Manager
   layers:
   - Default
   - TransparentFX

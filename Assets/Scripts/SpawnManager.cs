@@ -6,6 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     // Spawn manager array for enemies
     public GameObject[] enemyPrefabs;
+    public GameObject[] playerPowerUps;
 
     private float spawnPosX = 20f;
     private float spawnRangeY = 13.0f;
@@ -14,6 +15,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float startDelay = 2;
     [SerializeField] float spawnInterval = 1;
 
+    //[SerializeField] float startPowerUpDelay = 10;
+    //[SerializeField] float spawnPowerUpInterval = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class SpawnManager : MonoBehaviour
         // Method to call a function at a certain time
 
         InvokeRepeating("SpawnRandomEnemy", startDelay, spawnInterval);
+        //InvokeRepeating("SpawnRandomPowerUpHP", startPowerUpDelay, spawnPowerUpInterval);
     }
 
     // Update is called once per frame
@@ -29,7 +33,7 @@ public class SpawnManager : MonoBehaviour
 
     }
 
-    // Custom function to spawn random enemy
+    // Custom functions to spawn random enemies and power ups
 
     void SpawnRandomEnemy()
     {
@@ -38,4 +42,12 @@ public class SpawnManager : MonoBehaviour
         Vector3 spawnPos = new Vector3(spawnPosX, Random.Range (-spawnRangeY, spawnRangeY), spawnPosZ);
         Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
     }
+
+    //void SpawnRandomPowerUpHP()
+    //{
+    //    // Randomly generate power ups
+    //    int powerUpIndex = Random.Range(0, playerPowerUps.Length);
+    //    Vector3 spawnPos = new Vector3(spawnPosX, Random.Range(-spawnRangeY, spawnRangeY), spawnPosZ);
+    //    Instantiate(playerPowerUps[powerUpIndex], spawnPos, playerPowerUps[powerUpIndex].transform.rotation);
+    //}
 }

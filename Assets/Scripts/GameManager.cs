@@ -7,32 +7,26 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // UI
-    [SerializeField] Text scoreText;
-    [SerializeField] Text tryAgainText;
     [SerializeField] Text gameOverText;
-    [SerializeField] Text quitGameText;
+    [SerializeField] Text tryAgainText;
 
-    private bool tryAgain;
     private bool gameOver;
+    private bool tryAgain;
 
+    // Reference to player status
     private DetectPlayerCollisions playerStatus;
-    private ScoreManager currentScore;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Reference to script s
+        playerStatus = GetComponent<DetectPlayerCollisions>();
+
         // Set UI defaults
-        
         gameOver = false;
         tryAgain = false;
         gameOverText.text = "";
         tryAgainText.text = "";
-        quitGameText.text = "";
-        scoreText.text = "";
-
-        // Reference to player collisions script
-        playerStatus = GetComponent<DetectPlayerCollisions>();
-        currentScore = GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -51,32 +45,31 @@ public class GameManager : MonoBehaviour
             // Condition to quit game
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Application.Quit();
+                SceneManager.LoadScene("MainMenu");
+                // SceneManager.LoadScene(SceneManager.GetSceneByName("HighScores")); TO DO << load scores screen after game over after 5 seconds
+
             }
         }
     }
 
-    // Custom method to update text for score/damage
-    public void incrementScore()
-    {
-        UpdateUI(); // TO DO <<< Update the UI when game over
+    //// Custom method to update text for score and win/game over
+    //public void UpdateUI()
+    //{
+    //    // Game Over condition
+    //    if (playerStatus.playerCurrentHitPoints < 1)
+    //    {
 
+    //    }
+    //}
+
+    public void GameOver()
+    {
         // Game Over condition
         if (playerStatus.playerCurrentHitPoints < 1)
         {
+            gameOver = true;
             Debug.Log("Game Over!");
-           // SceneManager.LoadScene(SceneManager.GetSceneByName("HighScores")); TO DO << load scores screen after game over after 5 seconds
+            // << TO DO add try again/game over update screen
         }
-    }
-
-    // Custom method to update text for score and win/game over
-    public void UpdateUI()
-    {
-        // << TO DO add game over update screen
-    }
-
-    public void UpdateScore()
-    {
-        scoreText.text = $"{currentScore}";
     }
 }

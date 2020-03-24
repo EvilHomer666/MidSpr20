@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : MonoBehaviour
+public class PlayerAttackMotion : MonoBehaviour
 {
     // Projectile speeds
     public float speedLv01 = 40;
@@ -10,7 +10,7 @@ public class MoveForward : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

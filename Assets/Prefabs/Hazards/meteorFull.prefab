@@ -78,8 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHitPoints: 5
-  playerExplosion: {fileID: 6480039668675574283, guid: ca1ea711c5563de4ba45ec3e86313fe9,
-    type: 3}
+  scoreValue: 7
 --- !u!114 &5839260588150684323
 MonoBehaviour:
   m_ObjectHideFlags: 0
