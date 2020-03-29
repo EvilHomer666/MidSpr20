@@ -21,6 +21,7 @@ TagManager:
   - Try Again
   - Game Over
   - Score Manager
+  - Lv4
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Post-Processing
   - 
   - 
   - 

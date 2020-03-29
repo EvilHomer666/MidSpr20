@@ -190,8 +190,8 @@ MonoBehaviour:
   enemyProjectile: {fileID: 5238377259683966199, guid: 840c4efffeb00874bac62b1e6f9f55f9,
     type: 3}
   enemyFireSpawn: {fileID: 655006383595901676}
-  fireRate: 7
-  delay: 3
+  fireRate: 50
+  delay: 0.5
 --- !u!82 &1811296833649434863
 AudioSource:
   m_ObjectHideFlags: 0

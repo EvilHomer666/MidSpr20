@@ -52,22 +52,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //// Custom method to update text for score and win/game over
-    //public void UpdateUI()
-    //{
-    //    // Game Over condition
-    //    if (playerStatus.playerCurrentHitPoints < 1)
-    //    {
-
-    //    }
-    //}
-
     public void GameOver()
     {
         // Game Over condition
         if (playerStatus.playerCurrentHitPoints < 1)
         {
             gameOver = true;
+
             Debug.Log("Game Over!");
             // << TO DO add try again/game over update screen
         }

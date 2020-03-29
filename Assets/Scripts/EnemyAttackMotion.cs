@@ -6,6 +6,7 @@ public class EnemyAttackMotion : MonoBehaviour
 {
     // Projectile speeds
     [SerializeField] float speedLv01 = 3.5f;
+    [SerializeField] bool hommingProjectile;
     private Rigidbody enemyProjectileRb;
     private GameObject player;
 
@@ -22,6 +23,11 @@ public class EnemyAttackMotion : MonoBehaviour
     void Update()
     {
         if(player != null)
+        {
+            Vector3 zoomsTowardsPlayer = (player.transform.position);
+            enemyProjectileRb.AddForce(zoomsTowardsPlayer * speedLv01);
+        }
+        else if (player != null && hommingProjectile == true)
         {
             Vector3 hommingTowardsPlayer = (player.transform.position - transform.position).normalized;
             enemyProjectileRb.AddForce(hommingTowardsPlayer * speedLv01);
