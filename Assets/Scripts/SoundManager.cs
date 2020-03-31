@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // SoundManager array
-    public GameObject[] soundFxEnemy;
-    public GameObject[] soundFxPlayer;
-    public GameObject[] stageMusic;
+    [SerializeField] AudioClip blowShield;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,13 +19,30 @@ public class SoundManager : MonoBehaviour
         
     }
 
-    // Custom function to access sound FXs
+    // Custom functions to access sound FXs
+    // Player SFX
+    public void PlayerShieldDamage()
+    {
+        audioSource.PlayOneShot(blowShield, 0.7F);
+        return;
+    }
+    public void PlayerShieldUp()
+    {
+        audioSource.PlayOneShot(blowShield, 0.7F);
+        return;
+    }
+    public void PlayerShieldDown()
+    {
+        audioSource.PlayOneShot(blowShield, 0.7F);
+        return;
+    }
+    public void PlayerDangerWarning()
+    {
+        audioSource.PlayOneShot(blowShield, 0.7F);
+        return;
+    }
 
-    //void cueSoundFx()
-    //{
-    //    if ()
-    //    {
-    //        int soundIndex = 
-    //    }
-    //}
+    // Enemy SFX
+
+    // Hazards SFX
 }

@@ -8,9 +8,15 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject credits;
 
+    // Update is called once per frame
+    void Update()
+    {
+        //timeElapsed += Time.deltaTime;
+    }
+
     public void StartGame()
-    {        
-        SceneManager.LoadScene("Lev01");
+    {
+            SceneManager.LoadScene("Lev01");
     }
 
     // Custom methods to show credits, main menu, start & quit game
@@ -34,11 +40,5 @@ public class MainMenu : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

@@ -62,8 +62,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7249371538421419211}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0, z: -9.2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 1959246298781478379}
   m_Father: {fileID: 0}
@@ -128,7 +128,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -145,8 +145,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13.688481, y: 6.2904167, z: 21.213663}
-  m_Center: {x: 0.09102726, y: 2.121747, z: -2.8470898}
+  m_Size: {x: 15.410169, y: 8.403389, z: 21.213663}
+  m_Center: {x: -0.06549001, y: 1.9261026, z: -2.8470895}
 --- !u!114 &6178122679401980838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHitPoints: 2
-  scoreValue: 5
+  scoreValue: 50
 --- !u!114 &1732513421977940273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26ed5b275b73c345962a5490ffdefb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 6
+  enemySpeed: 15
 --- !u!114 &3590772968789362460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,8 +189,8 @@ MonoBehaviour:
   enemyProjectile: {fileID: 5238377259683966199, guid: 840c4efffeb00874bac62b1e6f9f55f9,
     type: 3}
   enemyFireSpawn: {fileID: 1959246298781478379}
-  fireRate: 10
-  delay: 0.25
+  fireRate: 1
+  delay: 1
 --- !u!82 &-7992190929315410873
 AudioSource:
   m_ObjectHideFlags: 0

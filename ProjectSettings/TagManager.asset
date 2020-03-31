@@ -22,6 +22,12 @@ TagManager:
   - Game Over
   - Score Manager
   - Lv4
+  - Lv1Boss
+  - LaunchPad
+  - LaunchSpawn
+  - EnemyAttackManager
+  - SceneLoadManager
+  - SoundManager
   layers:
   - Default
   - TransparentFX

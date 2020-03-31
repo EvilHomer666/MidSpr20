@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class EnemyAttackMotion : MonoBehaviour
 {
-    // Projectile speeds
-    [SerializeField] float speedLv01 = 3.5f;
-    [SerializeField] bool hommingProjectile;
+    // Projectile variables
+    [SerializeField] float speedLv01;
+    [SerializeField] bool homingProjectile;
+
+    //private Transform player;
+    private Vector3 target;
+
     private Rigidbody enemyProjectileRb;
     private GameObject player;
+
+    //private DetectPlayerCollisions playerStatus;
 
     // Start is called before the first frame update
     void Start()
@@ -16,21 +22,27 @@ public class EnemyAttackMotion : MonoBehaviour
         // Fetch the game objects rigid bodies to apply movement
         enemyProjectileRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
-        enemyProjectileRb.velocity = Vector3.left * speedLv01;
+        //playerStatus = GetComponent<DetectPlayerCollisions>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        if(player != null)
+        if (homingProjectile == false && player != null)
         {
-            Vector3 zoomsTowardsPlayer = (player.transform.position);
-            enemyProjectileRb.AddForce(zoomsTowardsPlayer * speedLv01);
+            //player = GameObject.FindGameObjectWithTag("Player").transform;
+
+            target = (player.transform.position - transform.position).normalized * speedLv01;
+
+            transform.LookAt(target);
+            transform.position += target * speedLv01 * Time.deltaTime;
+
         }
-        else if (player != null && hommingProjectile == true)
+
+        if (homingProjectile == true && player != null)
         {
-            Vector3 hommingTowardsPlayer = (player.transform.position - transform.position).normalized;
-            enemyProjectileRb.AddForce(hommingTowardsPlayer * speedLv01);
+            // Homing projectile
+            Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+            enemyProjectileRb.AddForce(lookDirection * speedLv01);
         }
     }
 }

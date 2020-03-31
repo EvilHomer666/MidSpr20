@@ -9,22 +9,14 @@ public class GameManager : MonoBehaviour
     // UI
     [SerializeField] Text gameOverText;
     [SerializeField] Text tryAgainText;
-
-    private bool gameOver;
-    private bool tryAgain;
-
-    // Reference to player status
-    private DetectPlayerCollisions playerStatus;
+    [SerializeField] float pauseDelay;
+    public bool gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Reference to script s
-        playerStatus = GetComponent<DetectPlayerCollisions>();
-
         // Set UI defaults
         gameOver = false;
-        tryAgain = false;
         gameOverText.text = "";
         tryAgainText.text = "";
     }
@@ -40,13 +32,15 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Time.timeScale = 1;
             }
 
             // Condition to quit game
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 SceneManager.LoadScene("MainMenu");
-                // SceneManager.LoadScene(SceneManager.GetSceneByName("HighScores")); TO DO << load scores screen after game over after 5 seconds
+                Time.timeScale = 1;
+                // SceneManager.LoadScene(SceneManager.GetSceneByName("HighScores")); TO DO << load scores screen after game over and quit
 
             }
         }
@@ -54,13 +48,21 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        // Game Over condition
-        if (playerStatus.playerCurrentHitPoints < 1)
-        {
-            gameOver = true;
+        // Game Over condition            
+            gameOverText.text = "Game Over";
+            tryAgainText.text = "Press 'R' Key to Try Again or Esc to Quit";
+            //gameOver = true;
+            //Debug.Log("Game Over!");
+        StartCoroutine(PauseTime());
 
-            Debug.Log("Game Over!");
-            // << TO DO add try again/game over update screen
-        }
+    }
+
+    // Custom coroutine (THESE THINGS ARE AWESOME!!!!) method to allow player SFX to finish before pausing for game over screen
+    IEnumerator PauseTime()
+    {
+        yield return new WaitForSeconds(pauseDelay);
+        gameOver = true;
+        Debug.Log("Game Over!");
+        Time.timeScale = 0;
     }
 }

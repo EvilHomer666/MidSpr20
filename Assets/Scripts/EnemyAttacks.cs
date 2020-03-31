@@ -19,11 +19,11 @@ public class EnemyAttacks : MonoBehaviour
     }
 
     // Custom method for enemy to attack player with a projectile
-
         void Attack()
     {
-        Instantiate(enemyProjectile, enemyFireSpawn.position, enemyFireSpawn.rotation);
-        audioSource.Play();
+            // Instantiate enemy projectile at enemy position and play SFX
+            Instantiate(enemyProjectile, enemyFireSpawn.position, enemyFireSpawn.rotation);
+            audioSource.Play();
     }
 
     // Update is called once per frame
