@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
 
         // Projectile launch condition with foreach element to read array
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Space))
         {
             foreach(var projectile in cannons)
             {

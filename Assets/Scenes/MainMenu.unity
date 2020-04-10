@@ -186,7 +186,7 @@ MonoBehaviour:
 
     \u2022<indent=1em>Stage Track "RailJ by etDeceased Superior Technician. http://www.nosoapradio.us</indent>
 
-    \u2022<indent=iem>Boss 3D model by Rxanadu https://opengameart.org/content/floating-tank</indent>'
+    \u2022<indent=1em>Boss 3D model by Rxanadu https://opengameart.org/content/floating-tank</indent>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4f575a60791181748aa3257b60b4dc81, type: 2}
   m_sharedMaterial: {fileID: -3715981051741601035, guid: 4f575a60791181748aa3257b60b4dc81,
@@ -316,7 +316,7 @@ Transform:
   m_GameObject: {fileID: 141651712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 37.7229, y: -4.6235485, z: -2.76875}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.175, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1446660398}
   m_RootOrder: 1
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: Exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4f575a60791181748aa3257b60b4dc81, type: 2}
   m_sharedMaterial: {fileID: -3715981051741601035, guid: 4f575a60791181748aa3257b60b4dc81,
@@ -890,8 +890,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603113037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 32.3229, y: -4.6235485, z: -30.16875}
-  m_LocalScale: {x: 1.7268037, y: 1.2482917, z: 1.664389}
+  m_LocalPosition: {x: 45.6, y: -4.6235485, z: -30.16875}
+  m_LocalScale: {x: 2.7578568, y: 1.9936312, z: 2.658175}
   m_Children: []
   m_Father: {fileID: 1446660398}
   m_RootOrder: 2
@@ -1155,7 +1155,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!81 &642125051
 AudioListener:
@@ -1191,7 +1191,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 30.161932
-  orthographic: 0
+  orthographic: 1
   orthographic size: 14.377507
   m_Depth: -1
   m_CullingMask:
@@ -1670,7 +1670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076941602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.9, y: -4.6235485, z: 2.53125}
+  m_LocalPosition: {x: 44.9, y: -4.6235485, z: 2.53125}
   m_LocalScale: {x: 1.35, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1446660398}
@@ -1791,7 +1791,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 780932050}
   m_Father: {fileID: 1970302824}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2037,7 +2038,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 816b6eab58d24c646a55f35fb63b0f1f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2548,7 +2549,6 @@ RectTransform:
   - {fileID: 1007095994}
   - {fileID: 966978459}
   - {fileID: 1619362653}
-  - {fileID: 780932050}
   m_Father: {fileID: 2073457102}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2713,22 +2713,22 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1970302824}
+    m_TransformParent: {fileID: 1419446572}
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -459.5
+      value: -309.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -304.4
+      value: -459.01
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.1
+      value: -3.0999997
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
@@ -2753,7 +2753,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
@@ -2773,17 +2773,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.87789536
+      value: 0.6057478
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.87789524
+      value: 0.60574776
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8778955
+      value: 0.60574794
+      objectReference: {fileID: 0}
+    - target: {fileID: -3888192730098027907, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
         type: 3}
@@ -2794,6 +2799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7e651ea55d76ec741a74b02c20cc8b5e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e651ea55d76ec741a74b02c20cc8b5e, type: 3}
