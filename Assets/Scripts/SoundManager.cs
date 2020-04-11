@@ -5,6 +5,10 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] AudioClip blowShield;
+    [SerializeField] AudioClip recoverShield;
+    [SerializeField] AudioClip speedDown;
+    [SerializeField] AudioClip dangerWarning;
+    [SerializeField] AudioClip speedBoost;
     private AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -28,17 +32,22 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayerShieldUp()
     {
-        audioSource.PlayOneShot(blowShield, 0.7F);
+        audioSource.PlayOneShot(recoverShield, 0.7F);
         return;
     }
-    public void PlayerShieldDown()
+    public void PlayerSpeedDown()
     {
-        audioSource.PlayOneShot(blowShield, 0.7F);
+        audioSource.PlayOneShot(speedDown, 0.7F);
+        return;
+    }
+    public void PlayerSpeedBoost()
+    {
+        audioSource.PlayOneShot(speedBoost, 0.7F);
         return;
     }
     public void PlayerDangerWarning()
     {
-        audioSource.PlayOneShot(blowShield, 0.7F);
+        audioSource.PlayOneShot(dangerWarning, 0.7F);
         return;
     }
 

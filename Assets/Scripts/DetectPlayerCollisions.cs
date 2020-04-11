@@ -8,11 +8,10 @@ public class DetectPlayerCollisions : MonoBehaviour
     public int playerCurrentHitPoints;
     private int playerMaxHitPoints = 4;
     private bool hasSpeedPowerUp;
-    //[SerializeField] AudioClip blowShield;
-    //private AudioSource audioSource;
 
     private GameManager gameManager;
     private SoundManager soundManager;
+    private PlayerController speedBoost;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +24,7 @@ public class DetectPlayerCollisions : MonoBehaviour
         GameObject soundManagerObject = GameObject.FindWithTag("SoundManager");
         soundManager = soundManagerObject.GetComponent<SoundManager>();
 
-        //audioSource = GetComponent<AudioSource>();
+        speedBoost = GetComponent<PlayerController>();
 
         hasSpeedPowerUp = false; // << TO DO: to be used with player's speed power up
     }
@@ -33,8 +32,19 @@ public class DetectPlayerCollisions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerCurrentHitPoints >= 4)
+        {
+            hasSpeedPowerUp = true;
+            playerCurrentHitPoints = playerMaxHitPoints;
+        }
+
+        if(playerCurrentHitPoints <= 3)
+        {
+            speedBoost.playerCurrentSpeed = playerCurrentHitPoints;
+        }
+
         // Particle system/engine health mechanic
-        if (playerCurrentHitPoints == 4 && hasSpeedPowerUp == true) // << TO DO: add speed power up
+        if (playerCurrentHitPoints == 4 && hasSpeedPowerUp == true)
         {
             GameObject.Find("enginesLv4").GetComponent<ParticleSystem>().Play();
             GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
@@ -63,7 +73,7 @@ public class DetectPlayerCollisions : MonoBehaviour
             GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Play();
         }
       
-        // Player hit points check
+        // Player Game Over check
         if (playerCurrentHitPoints < 1)
         {
             // Instantiate VFX and SFX on player death
@@ -88,12 +98,29 @@ public class DetectPlayerCollisions : MonoBehaviour
             soundManager.PlayerShieldDamage();
         }
 
-        if (other.gameObject.tag == "Hazard")
+        if (other.gameObject.tag == "Hazard") 
         {
             Debug.Log("Collision!");
-            playerCurrentHitPoints -= 2;
+            playerCurrentHitPoints -= 2; // << Hazards have a larger damage value
             Destroy(other.gameObject);
             soundManager.PlayerShieldDamage();
+        }
+
+        if (other.gameObject.tag == "Health")
+        {
+            Debug.Log("Power Up!");
+            playerCurrentHitPoints += 1;
+            Destroy(other.gameObject);
+            soundManager.PlayerShieldUp();
+        }
+
+        if (other.gameObject.tag == "Speed" && playerCurrentHitPoints == 3)
+        {
+            Debug.Log("Speed Up!");
+            playerCurrentHitPoints += 1;
+            Destroy(other.gameObject);
+            speedBoost.playerSpeed = 15.0f;
+            soundManager.PlayerSpeedBoost();
         }
     }
 }

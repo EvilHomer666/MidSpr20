@@ -163,8 +163,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.2517676}
-  m_Center: {x: 0, y: 0, z: -0.12588389}
+  m_Size: {x: 1.0045741, y: 1, z: 1.0027739}
+  m_Center: {x: -0.0007973415, y: 0, z: -0.0013871853}
 --- !u!23 &48171573
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -219,8 +219,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48171570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.13, y: 0.4, z: -5.98}
-  m_LocalScale: {x: 51.9791, y: 28, z: 23.919998}
+  m_LocalPosition: {x: 1.51, y: 0.4, z: -9.1}
+  m_LocalScale: {x: 46.43228, y: 28, z: 5.878884}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1125,36 +1125,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630816271}
   m_CullTransparentMesh: 0
---- !u!1 &643804266
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 643804267}
-  m_Layer: 0
-  m_Name: LaunchPad
-  m_TagString: LaunchPad
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &643804267
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643804266}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 3, z: -9.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757846210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,36 +1343,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048845151}
   m_CullTransparentMesh: 0
---- !u!1 &1074948053
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1074948054}
-  m_Layer: 0
-  m_Name: LaunchSpawn
-  m_TagString: LaunchSpawn
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1074948054
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074948053}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 3, z: -9.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1207899874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2297,8 +2237,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522144657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.2, y: 1.068568, z: -0.03125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -19.4, y: 1.068568, z: -0.03125}
+  m_LocalScale: {x: 1.0375, y: 1, z: 1}
   m_Children:
   - {fileID: 159835841}
   - {fileID: 1299040922}
@@ -2355,6 +2295,8 @@ MonoBehaviour:
   - {fileID: 1800588449861238266, guid: 1bb96edf64e06d544b4bbc53bdf03814, type: 3}
   - {fileID: 7639773072361778277, guid: d872df99cb2a82f47aad477a273776cd, type: 3}
   - {fileID: 6914487258033100540, guid: 795c12f00070ccd4ea31cfaf05ecda83, type: 3}
+  - {fileID: 1950646092676279743, guid: 75a8b4e4ee0b6784f84fd50cfc169b90, type: 3}
+  - {fileID: 4435665941609310627, guid: 9276c1de9b7eb1f4bb73ec1bcd4e8e26, type: 3}
   startDelay: 1.75
   spawnInterval: 2.25
 --- !u!1001 &1736748213
@@ -2616,6 +2558,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blowShield: {fileID: 8300000, guid: a7696a2bf114ed3438fefac35ec6ec66, type: 3}
+  recoverShield: {fileID: 8300000, guid: b23e1c881b0517f408dacb8d3251a3fd, type: 3}
+  speedDown: {fileID: 8300000, guid: cc9f2a5bad68b4c499da528246beab59, type: 3}
+  dangerWarning: {fileID: 8300000, guid: 47b2e2df8f1ef0f46bffb11cf84f60d8, type: 3}
+  speedBoost: {fileID: 8300000, guid: 9ffecfb88b82f164ea5edc55b3ad8e93, type: 3}
 --- !u!82 &1891032625
 AudioSource:
   m_ObjectHideFlags: 0

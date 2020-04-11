@@ -28,6 +28,8 @@ TagManager:
   - EnemyAttackManager
   - SceneLoadManager
   - SoundManager
+  - HazardHP
+  - HazardSP
   layers:
   - Default
   - TransparentFX
