@@ -482,7 +482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159835839}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.2, y: 0.4, z: 2.53125}
+  m_LocalPosition: {x: 38.3, y: 0.4, z: 2.53125}
   m_LocalScale: {x: 1.063125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1522144658}
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverText: {fileID: 630816273}
   tryAgainText: {fileID: 1048845153}
-  pauseDelay: 4
+  pauseDelay: 1
   gameOver: 0
 --- !u!82 &229724352
 AudioSource:
@@ -1970,7 +1970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonSpawn: {fileID: 60073923}
-  speed: 10
+  playerSpeed: 10
+  playerCurrentSpeed: 10
   cannons:
   - {fileID: 1211848329386703990, guid: 5453b14486f3fac4eb817178dee34fbc, type: 3}
 --- !u!82 &1303119712
@@ -2084,6 +2085,8 @@ MonoBehaviour:
   playerExplosion: {fileID: 6480039668675574283, guid: ca1ea711c5563de4ba45ec3e86313fe9,
     type: 3}
   playerCurrentHitPoints: 3
+  hasSpeedPowerUp: 0
+  playerMaxHitPoints: 4
 --- !u!65 &1303119714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2560,8 +2563,9 @@ MonoBehaviour:
   blowShield: {fileID: 8300000, guid: a7696a2bf114ed3438fefac35ec6ec66, type: 3}
   recoverShield: {fileID: 8300000, guid: b23e1c881b0517f408dacb8d3251a3fd, type: 3}
   speedDown: {fileID: 8300000, guid: cc9f2a5bad68b4c499da528246beab59, type: 3}
-  dangerWarning: {fileID: 8300000, guid: 47b2e2df8f1ef0f46bffb11cf84f60d8, type: 3}
   speedBoost: {fileID: 8300000, guid: 9ffecfb88b82f164ea5edc55b3ad8e93, type: 3}
+  dangerWarning: {fileID: 8300000, guid: 47b2e2df8f1ef0f46bffb11cf84f60d8, type: 3}
+  collectPowerUp: {fileID: 8300000, guid: bd4da289d6618df41bcc15a665ae2c4e, type: 3}
 --- !u!82 &1891032625
 AudioSource:
   m_ObjectHideFlags: 0

@@ -105,9 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf8057a533036e41b2a6d5d65541aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpSpeed: 2
-  destroyAfterSeconds: 2
-  powerUpHPValue: 1
+  scoreValue: 0
 --- !u!1 &4760844904095616668
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4464267701470283394}
+  - component: {fileID: -6020214384407774363}
   m_Layer: 0
   m_Name: Health
   m_TagString: Health
@@ -139,3 +138,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &-6020214384407774363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760844904095616668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf8057a533036e41b2a6d5d65541aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 75

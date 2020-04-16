@@ -7,8 +7,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip blowShield;
     [SerializeField] AudioClip recoverShield;
     [SerializeField] AudioClip speedDown;
-    [SerializeField] AudioClip dangerWarning;
     [SerializeField] AudioClip speedBoost;
+    [SerializeField] AudioClip dangerWarning;
+    [SerializeField] AudioClip collectPowerUp;
+
     private AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -49,6 +51,11 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.PlayOneShot(dangerWarning, 0.7F);
         return;
+    }
+
+    public void PlayerCollectedPowerUp()
+    {
+        audioSource.PlayOneShot(collectPowerUp, 0.7f);
     }
 
     // Enemy SFX

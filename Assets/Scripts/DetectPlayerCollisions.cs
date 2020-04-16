@@ -5,13 +5,15 @@ using UnityEngine;
 public class DetectPlayerCollisions : MonoBehaviour
 {
     [SerializeField] GameObject playerExplosion;
-    public int playerCurrentHitPoints;
-    private int playerMaxHitPoints = 4;
-    private bool hasSpeedPowerUp;
+    public float playerCurrentHitPoints;
+    private int playerCurrentSpeed;
+    private int playerMaxSpeed = 25;
+    public bool hasSpeedPowerUp;
 
     private GameManager gameManager;
     private SoundManager soundManager;
-    private PlayerController speedBoost;
+
+    public float playerMaxHitPoints = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -24,27 +26,24 @@ public class DetectPlayerCollisions : MonoBehaviour
         GameObject soundManagerObject = GameObject.FindWithTag("SoundManager");
         soundManager = soundManagerObject.GetComponent<SoundManager>();
 
-        speedBoost = GetComponent<PlayerController>();
-
-        hasSpeedPowerUp = false; // << TO DO: to be used with player's speed power up
+        hasSpeedPowerUp = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerCurrentHitPoints >= 4)
+        if (playerCurrentHitPoints > playerMaxHitPoints)
         {
-            hasSpeedPowerUp = true;
             playerCurrentHitPoints = playerMaxHitPoints;
         }
 
-        if(playerCurrentHitPoints <= 3)
+        if (playerCurrentHitPoints <= 3)
         {
-            speedBoost.playerCurrentSpeed = playerCurrentHitPoints;
+            hasSpeedPowerUp = false;
         }
 
         // Particle system/engine health mechanic
-        if (playerCurrentHitPoints == 4 && hasSpeedPowerUp == true)
+        if (playerCurrentHitPoints == 3 && hasSpeedPowerUp == true)
         {
             GameObject.Find("enginesLv4").GetComponent<ParticleSystem>().Play();
             GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
@@ -74,14 +73,12 @@ public class DetectPlayerCollisions : MonoBehaviour
         }
       
         // Player Game Over check
-        if (playerCurrentHitPoints < 1)
+        if (playerCurrentHitPoints <= 0)
         {
             // Instantiate VFX and SFX on player death
             Instantiate(playerExplosion, transform.position, transform.rotation);
             GameObject.Find("ParticleBurst").GetComponent<ParticleSystem>().Play();
             Destroy(gameObject);                      
-
-            // System pause using coroutine before stopping game
             gameManager.GameOver();            
         }        
     }
@@ -96,31 +93,24 @@ public class DetectPlayerCollisions : MonoBehaviour
             playerCurrentHitPoints -= 1;
             Destroy(other.gameObject);
             soundManager.PlayerShieldDamage();
+
+            if (playerCurrentHitPoints == 1)
+            {
+                soundManager.PlayerDangerWarning();
+            }
         }
 
-        if (other.gameObject.tag == "Hazard") 
+        if (other.gameObject.tag == "Hazard" || other.gameObject.tag == "HazardSP" || other.gameObject.tag == "HazardHP") 
         {
             Debug.Log("Collision!");
             playerCurrentHitPoints -= 2; // << Hazards have a larger damage value
             Destroy(other.gameObject);
             soundManager.PlayerShieldDamage();
-        }
 
-        if (other.gameObject.tag == "Health")
-        {
-            Debug.Log("Power Up!");
-            playerCurrentHitPoints += 1;
-            Destroy(other.gameObject);
-            soundManager.PlayerShieldUp();
-        }
-
-        if (other.gameObject.tag == "Speed" && playerCurrentHitPoints == 3)
-        {
-            Debug.Log("Speed Up!");
-            playerCurrentHitPoints += 1;
-            Destroy(other.gameObject);
-            speedBoost.playerSpeed = 15.0f;
-            soundManager.PlayerSpeedBoost();
+            if (playerCurrentHitPoints == 1)
+            {
+                soundManager.PlayerDangerWarning();
+            }
         }
     }
 }
