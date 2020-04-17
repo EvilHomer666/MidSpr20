@@ -49,10 +49,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         // Game Over condition            
-            gameOverText.text = "Game Over";
-            tryAgainText.text = "Press 'R' Key to Try Again or Esc to Quit";
-            //gameOver = true;
-            //Debug.Log("Game Over!");
+        gameOverText.text = "Game Over";
+        tryAgainText.text = "Press 'R' Key to Try Again or Esc to Quit";
         StartCoroutine(PauseTime());
 
     }

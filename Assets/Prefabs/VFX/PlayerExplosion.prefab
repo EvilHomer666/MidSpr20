@@ -4678,11 +4678,11 @@ Light:
   m_GameObject: {fileID: 6480039668169040416}
   m_Enabled: 1
   serializedVersion: 9
-  m_Type: 1
+  m_Type: 0
   m_Color: {r: 0.97794116, g: 0.5708955, b: 0.20134084, a: 1}
   m_Intensity: 12
   m_Range: 360
-  m_SpotAngle: 30
+  m_SpotAngle: 179
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -4719,7 +4719,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 10, y: 10}
   m_BounceIntensity: 1
@@ -4962,26 +4962,6 @@ PrefabInstance:
     - target: {fileID: 400006, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.10000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}
-      propertyPath: lengthInSec
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}

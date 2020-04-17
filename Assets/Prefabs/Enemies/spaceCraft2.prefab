@@ -160,6 +160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHitPoints: 2
+  holdsPowerUp: 0
+  powerUpDrop: {fileID: 0}
+  powerUpSpawn: {fileID: 0}
   scoreValue: 50
 --- !u!114 &1732513421977940273
 MonoBehaviour:
@@ -190,7 +193,7 @@ MonoBehaviour:
     type: 3}
   enemyFireSpawn: {fileID: 1959246298781478379}
   fireRate: 1
-  delay: 1
+  delay: 0.5
 --- !u!82 &-7992190929315410873
 AudioSource:
   m_ObjectHideFlags: 0

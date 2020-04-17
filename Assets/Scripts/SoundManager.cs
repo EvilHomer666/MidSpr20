@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
     // Player SFX
     public void PlayerShieldDamage()
     {
-        audioSource.PlayOneShot(blowShield, 0.7F);
+        audioSource.PlayOneShot(blowShield, 1.2F);
         return;
     }
     public void PlayerShieldUp()
@@ -49,13 +49,13 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayerDangerWarning()
     {
-        audioSource.PlayOneShot(dangerWarning, 0.7F);
+        audioSource.PlayOneShot(dangerWarning, 0.3F);
         return;
     }
-
     public void PlayerCollectedPowerUp()
     {
-        audioSource.PlayOneShot(collectPowerUp, 0.7f);
+        audioSource.PlayOneShot(collectPowerUp, 0.5f);
+        return;
     }
 
     // Enemy SFX

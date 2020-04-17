@@ -7,7 +7,8 @@ public class DetectCollisions : MonoBehaviour
     // Enemy hit point variables
     [SerializeField] int enemyHitPoints;
     [SerializeField] bool holdsPowerUp;
-    [SerializeField] GameObject powerUp;
+    [SerializeField] GameObject powerUpDrop;
+    [SerializeField] Transform powerUpSpawn;
     public int scoreValue;
 
     //private ScoreManager scoreManager;
@@ -36,31 +37,26 @@ public class DetectCollisions : MonoBehaviour
             return;
         }
 
-        if (other.gameObject.tag == "PlayerProjectile")
+        while (other.gameObject.tag == "PlayerProjectile")
         {
             Debug.Log("Target Hit!");
             Destroy(other.gameObject);
             enemyHitPoints -= 1;
-        }
 
-        if(enemyHitPoints < 1)
-        {
-            Debug.Log("Target Destroyed!");
-            // Add score value of destroyed enemy to score variable in ScoreManager script and destroy game objects
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-            scoreManager.IncrementScore(scoreValue);
-        }
-
-        if (enemyHitPoints < 1 && gameObject.tag == "HazardHP" || gameObject.tag == "HazardSP")
-        {
-            Transform emtyVoid = GetComponent<Transform>();
-            Debug.Log("Target Destroyed!");
-            // Add score value of destroyed enemy to score variable in ScoreManager script and destroy game objects
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-            Instantiate(powerUp); // <<< Instantiate power up in destruction           
-            scoreManager.IncrementScore(scoreValue);
-        }
+            if (enemyHitPoints <= 0)
+            {
+                Debug.Log("Target Destroyed!");
+                // Add score value of destroyed enemy to score variable in ScoreManager script and destroy player projectile and enemy/hazard
+                scoreManager.IncrementScore(scoreValue);
+                if (gameObject.tag == "HazardHP" || gameObject.tag == "HazardSP")
+                {
+                    // Spawn power-up drop at enemies last position
+                    Instantiate(powerUpDrop, powerUpSpawn.position, powerUpSpawn.localRotation);
+                }
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+            }
+            break;
+        } 
     }
 }

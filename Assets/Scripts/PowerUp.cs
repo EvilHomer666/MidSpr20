@@ -8,11 +8,10 @@ public class PowerUp : MonoBehaviour
     private float powerUpSpeed = 2f;
     public int scoreValue;
 
-    //private ScoreManager scoreManager;
     private ScoreManager scoreManager;
     private SoundManager soundManager;
     private DetectPlayerCollisions playerCollisions;
-    private PlayerController speedBoost;
+    private PlayerController playerControllerSpeedBoost;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +25,7 @@ public class PowerUp : MonoBehaviour
         soundManager = soundManagerObject.GetComponent<SoundManager>();
 
         playerCollisions = FindObjectOfType<DetectPlayerCollisions>();
-        speedBoost = FindObjectOfType<PlayerController>();
+        playerControllerSpeedBoost = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -39,38 +38,38 @@ public class PowerUp : MonoBehaviour
     // On trigger enter function over-ride - Destroy power up on collision player
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints <=2)
+        if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints < playerCollisions.playerMaxHitPoints)
         {
-            scoreManager.IncrementScore(scoreValue);
-            soundManager.PlayerShieldUp();
-            Destroy(gameObject);
             playerCollisions.playerCurrentHitPoints += 1;
+            soundManager.PlayerShieldUp();
+            scoreManager.IncrementScore(scoreValue);
+            Destroy(gameObject);
             Debug.Log("Power Up!");
         }
 
-        else if(gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints >=3)
+        if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints == playerCollisions.playerMaxHitPoints)
         {
             soundManager.PlayerCollectedPowerUp();
-            scoreManager.IncrementScore(scoreValue);
+            scoreManager.IncrementScore(scoreValue *= 5);
             Destroy(gameObject);
+            Debug.Log("Pick Up!");
         }
 
-        if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints == 3)
+        if (gameObject.tag == "Speed" && other.gameObject.tag == "Player")
         {
-            scoreManager.IncrementScore(scoreValue);
+            playerControllerSpeedBoost.playerCurrentSpeed *= 0.5f;
+           
             soundManager.PlayerSpeedBoost();
+            scoreManager.IncrementScore(scoreValue);
             Destroy(gameObject);
-            playerCollisions.hasSpeedPowerUp = true;
-            playerCollisions.playerCurrentHitPoints = playerCollisions.playerMaxHitPoints;
-            speedBoost.playerCurrentSpeed = 15;
             Debug.Log("Speed Up!");
         }
 
-        else if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints == playerCollisions.playerMaxHitPoints)
-        {
-            soundManager.PlayerCollectedPowerUp();
-            scoreManager.IncrementScore(scoreValue);
-            Destroy(gameObject);
-        }
+        //if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints == 4)
+        //{
+        //    soundManager.PlayerCollectedPowerUp();
+        //    scoreManager.IncrementScore(scoreValue *= 13);
+        //    Destroy(gameObject);
+        //}
     }
 }
