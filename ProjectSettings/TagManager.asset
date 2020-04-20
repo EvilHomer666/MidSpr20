@@ -30,6 +30,7 @@ TagManager:
   - SoundManager
   - HazardHP
   - HazardSP
+  - SpawnManager
   layers:
   - Default
   - TransparentFX

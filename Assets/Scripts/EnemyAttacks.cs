@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class EnemyAttacks : MonoBehaviour
 {
+    [SerializeField] float fireRate;
     [SerializeField] GameObject enemyProjectile;
     [SerializeField] Transform enemyFireSpawn;
-    [SerializeField] float fireRate;
-    [SerializeField] float delay;
-
     private AudioSource audioSource;
+    public float delay;
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +23,5 @@ public class EnemyAttacks : MonoBehaviour
             // Instantiate enemy projectile at enemy position and play SFX
             Instantiate(enemyProjectile, enemyFireSpawn.position, enemyFireSpawn.rotation);
             audioSource.Play();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

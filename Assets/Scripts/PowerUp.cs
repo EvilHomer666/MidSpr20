@@ -5,13 +5,17 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     // PowerUp speed
-    private float powerUpSpeed = 2f;
-    public int scoreValue;
-
+    [SerializeField] float speedBoostValue;
+    [SerializeField] float powerUpSpeed;
+    [SerializeField] int scoreValue;
+    [SerializeField] int healthValue;
     private ScoreManager scoreManager;
+    private SpawnManager spawnManager;
     private SoundManager soundManager;
     private DetectPlayerCollisions playerCollisions;
     private PlayerController playerControllerSpeedBoost;
+    private float enemySpawnInterval = 3;
+    private float playerSpeedCap = 25;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,11 @@ public class PowerUp : MonoBehaviour
         GameObject soundManagerObject = GameObject.FindWithTag("SoundManager");
         soundManager = soundManagerObject.GetComponent<SoundManager>();
 
+        GameObject spawnManagerObject = GameObject.FindWithTag("SpawnManager");
+        spawnManager = spawnManagerObject.GetComponent<SpawnManager>();
+
         playerCollisions = FindObjectOfType<DetectPlayerCollisions>();
+
         playerControllerSpeedBoost = FindObjectOfType<PlayerController>();
     }
 
@@ -35,41 +43,43 @@ public class PowerUp : MonoBehaviour
         transform.Translate(Vector3.left * Time.deltaTime * powerUpSpeed);
     }
 
-    // On trigger enter function over-ride - Destroy power up on collision player
+    // On trigger enter function over-ride - Destroy power up on collision player NOTE TO SELF: None of this will work without colliders set to trigger.
     private void OnTriggerEnter(Collider other)
     {
         if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints < playerCollisions.playerMaxHitPoints)
         {
-            playerCollisions.playerCurrentHitPoints += 1;
+            playerCollisions.playerCurrentHitPoints += healthValue;
+            spawnManager.spawnInterval -= enemySpawnInterval;
             soundManager.PlayerShieldUp();
             scoreManager.IncrementScore(scoreValue);
             Destroy(gameObject);
             Debug.Log("Power Up!");
         }
 
-        if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints == playerCollisions.playerMaxHitPoints)
+        else if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints == playerCollisions.playerMaxHitPoints)
         {
             soundManager.PlayerCollectedPowerUp();
-            scoreManager.IncrementScore(scoreValue *= 5);
+            scoreManager.IncrementScore(scoreValue);
             Destroy(gameObject);
             Debug.Log("Pick Up!");
         }
 
-        if (gameObject.tag == "Speed" && other.gameObject.tag == "Player")
+        if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed <= playerSpeedCap)
         {
-            playerControllerSpeedBoost.playerCurrentSpeed *= 0.5f;
-           
+            playerControllerSpeedBoost.UpdatePlayerSpeed(speedBoostValue);
             soundManager.PlayerSpeedBoost();
             scoreManager.IncrementScore(scoreValue);
             Destroy(gameObject);
             Debug.Log("Speed Up!");
         }
 
-        //if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints == 4)
-        //{
-        //    soundManager.PlayerCollectedPowerUp();
-        //    scoreManager.IncrementScore(scoreValue *= 13);
-        //    Destroy(gameObject);
-        //}
+        else if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed >= playerSpeedCap)
+        {
+            soundManager.PlayerCollectedPowerUp();
+            scoreManager.IncrementScore(scoreValue);
+            Destroy(gameObject);
+            Debug.Log("Pick Up!");
+        }
     }
 }
+

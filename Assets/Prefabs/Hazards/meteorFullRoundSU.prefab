@@ -157,7 +157,7 @@ MonoBehaviour:
   powerUpDrop: {fileID: 6590288448442052280, guid: e37b88038c975584ea5069e675d30efb,
     type: 3}
   powerUpSpawn: {fileID: 1846637706706144019}
-  scoreValue: 20
+  scoreValue: 200
 --- !u!54 &6677294698075275631
 Rigidbody:
   m_ObjectHideFlags: 0

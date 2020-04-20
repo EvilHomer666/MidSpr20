@@ -83,7 +83,7 @@ MonoBehaviour:
   holdsPowerUp: 0
   powerUpDrop: {fileID: 0}
   powerUpSpawn: {fileID: 0}
-  scoreValue: 60
+  scoreValue: 600
 --- !u!114 &8278087502135295272
 MonoBehaviour:
   m_ObjectHideFlags: 0

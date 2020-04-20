@@ -5,11 +5,16 @@ using UnityEngine;
 public class DetectPlayerCollisions : MonoBehaviour
 {
     [SerializeField] GameObject playerExplosion;
-    public int playerCurrentHitPoints;
-    public int playerMaxHitPoints;
+    private int enginesLv1 = 1;
+    private int enginesLv2 = 2;
+    public int enginesLv3 = 3;
+    private int enginesLv4 = 4;
+    private int damageValue = 1;
     private GameManager gameManager;
     private SoundManager soundManager;
-    private PlayerController polarityModifierSwitch;
+    public int playerCurrentHitPoints;
+    public int playerMaxHitPoints;
+    // private PlayerController polarityModifierSwitch; // << TO DO to be implemented with player's ability to use enemy fire against them
 
 
     // Start is called before the first frame update
@@ -22,7 +27,7 @@ public class DetectPlayerCollisions : MonoBehaviour
         GameObject soundManagerObject = GameObject.FindWithTag("SoundManager");
         soundManager = soundManagerObject.GetComponent<SoundManager>();
 
-        polarityModifierSwitch = FindObjectOfType<PlayerController>();
+        // polarityModifierSwitch = FindObjectOfType<PlayerController>(); // << TO DO to be implemented with player's ability to use enemy fire against them
     }
 
     // Update is called once per frame
@@ -31,35 +36,36 @@ public class DetectPlayerCollisions : MonoBehaviour
         // Particle system/engine health mechanic
         while(gameManager.gameOver != true)
         {
-            if (playerCurrentHitPoints == 4)
+            if (playerCurrentHitPoints == enginesLv4)
             {
                 GameObject.Find("enginesLv4").GetComponent<ParticleSystem>().Play();
                 GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Stop();
-                polarityModifierSwitch.polarityModifier = true;
+               // polarityModifierSwitch.polarityModifier = true; // << TO DO to be implemented with player's ability to use enemy fire against them
             }
-            if (playerCurrentHitPoints == 3)
+            if (playerCurrentHitPoints == enginesLv3)
             {
                 GameObject.Find("enginesLv4").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Play();
                 GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Stop();
             }
-            if (playerCurrentHitPoints == 2)
+            if (playerCurrentHitPoints == enginesLv2)
             {
                 GameObject.Find("enginesLv4").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Play();
                 GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Stop();
             }
-            if (playerCurrentHitPoints == 1)
+            if (playerCurrentHitPoints == enginesLv1)
             {
                 GameObject.Find("enginesLv4").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Play();
             }
+
             // Player Game Over check
             if (playerCurrentHitPoints <= 0)
             {
@@ -81,11 +87,11 @@ public class DetectPlayerCollisions : MonoBehaviour
             other.gameObject.tag == "Hazard" || other.gameObject.tag == "HazardSP" || other.gameObject.tag == "HazardHP")
         {
             Debug.Log("Collision!");
-            playerCurrentHitPoints -= 1;
+            playerCurrentHitPoints -= damageValue;
             Destroy(other.gameObject);
             soundManager.PlayerShieldDamage();
 
-            if (playerCurrentHitPoints <= 1)
+            if (playerCurrentHitPoints <= damageValue)
             {
                 soundManager.PlayerDangerWarning();
             }

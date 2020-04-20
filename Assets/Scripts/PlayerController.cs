@@ -6,15 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     // Movement variables
     [SerializeField] Transform cannonSpawn;
-    private float playerStartSpeed;
-    private float xRange = 15.8f;
-    private float yRange = 11.5f;
+    private float xRange = 13f;
+    private float yRange = 8.5f;
     private float horizontalInput;
     private float verticalInput;
     private SoundManager soundManager;
     private AudioSource audioSource;
-    public float playerCurrentSpeed;
-    public bool polarityModifier;
+    public float playerSpeed;
+
+    // public bool polarityModifier; // << TO DO Add player ability to use enemy fire against them
 
     // Weapons array
     public Transform[] cannons;
@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //playerStartSpeed = 10.0f;
-        polarityModifier = false; // << TO DO Add player ability to use enemy fire against enemy
+        playerSpeed = 10;
+        //  polarityModifier = false; // << TO DO Add player ability to use enemy fire against them
     }
 
     // Update is called once per frame
@@ -47,22 +47,27 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
         }
 
-
         // Player input movement
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.back * horizontalInput * Time.deltaTime * playerCurrentSpeed);
+        transform.Translate(Vector3.back * horizontalInput * Time.deltaTime * playerSpeed);
 
         verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.up * verticalInput * Time.deltaTime * playerCurrentSpeed);
+        transform.Translate(Vector3.up * verticalInput * Time.deltaTime * playerSpeed);
 
         // Projectile launch condition with for each element to read array
         if (Input.GetKeyDown(KeyCode.JoystickButton0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
         {
-            foreach(var projectile in cannons)
+            foreach (var projectile in cannons)
             {
                 Instantiate(projectile, cannonSpawn.position, cannonSpawn.rotation);
             }
             GetComponent<AudioSource>().Play();
         }
+    }
+
+    // Update player speed method
+    public void UpdatePlayerSpeed(float speedBoost)
+    {
+        playerSpeed += speedBoost;
     }
 }

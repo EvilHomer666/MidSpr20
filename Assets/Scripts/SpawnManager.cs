@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField] float startDelay = 1.75f;
+    private float spawnPosX = 15f;
+    private float spawnRangeY = 7f;
+    private float spawnPosZ = -9.3f;
+    public float spawnInterval = 0.5f;
+
     // Spawn manager array for enemies
     public GameObject[] enemyPrefabs;
-
-    private float spawnPosX = 18.5f;
-    private float spawnRangeY = 11f;
-    private float spawnPosZ = -9.3f;
-
-    [SerializeField] float startDelay = 1.75f;
-    [SerializeField] float spawnInterval = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         // Method to call a function at a certain time
-
         InvokeRepeating("SpawnRandomEnemy", startDelay, spawnInterval);
     }
 

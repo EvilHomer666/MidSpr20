@@ -105,9 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf8057a533036e41b2a6d5d65541aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostValue: 0
   powerUpSpeed: 2
-  powerUpHPValue: 1
   scoreValue: 0
+  healthValue: 1
 --- !u!1 &6590288448442052280
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2634817474163664550}
   - component: {fileID: 4585815557592049615}
+  - component: {fileID: -3862227784866972018}
   m_Layer: 0
   m_Name: Speed
   m_TagString: Speed
@@ -152,6 +154,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf8057a533036e41b2a6d5d65541aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostValue: 5
   powerUpSpeed: 2
-  powerUpHPValue: 1
-  scoreValue: 100
+  scoreValue: 1500
+  healthValue: 0
+--- !u!65 &-3862227784866972018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590288448442052280}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

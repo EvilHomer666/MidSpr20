@@ -7,14 +7,9 @@ public class EnemyAttackMotion : MonoBehaviour
     // Projectile variables
     [SerializeField] float speedLv01;
     [SerializeField] bool homingProjectile;
-
-    //private Transform player;
     private Vector3 target;
-
     private Rigidbody enemyProjectileRb;
     private GameObject player;
-
-    //private DetectPlayerCollisions playerStatus;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +17,6 @@ public class EnemyAttackMotion : MonoBehaviour
         // Fetch the game objects rigid bodies to apply movement
         enemyProjectileRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
-        //playerStatus = GetComponent<DetectPlayerCollisions>();
     }
     // Update is called once per frame
     void Update()
@@ -35,7 +29,6 @@ public class EnemyAttackMotion : MonoBehaviour
 
             transform.LookAt(target);
             transform.position += target * speedLv01 * Time.deltaTime;
-
         }
 
         if (homingProjectile == true && player != null)

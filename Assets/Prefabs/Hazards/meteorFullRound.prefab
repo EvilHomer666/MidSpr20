@@ -123,8 +123,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHitPoints: 3
   holdsPowerUp: 0
-  powerUp: {fileID: 0}
-  scoreValue: 15
+  powerUpDrop: {fileID: 0}
+  powerUpSpawn: {fileID: 0}
+  scoreValue: 150
 --- !u!54 &802150544448439465
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -79,8 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHitPoints: 5
   holdsPowerUp: 0
-  powerUp: {fileID: 0}
-  scoreValue: 20
+  powerUpDrop: {fileID: 0}
+  powerUpSpawn: {fileID: 0}
+  scoreValue: 200
 --- !u!114 &5839260588150684323
 MonoBehaviour:
   m_ObjectHideFlags: 0

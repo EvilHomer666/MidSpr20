@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         // Game Over and Continue checks
 
-        if(gameOver == true)
+        while(gameOver != false)
         {
             // Condition to try again
             if (Input.GetKeyDown(KeyCode.R))
@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("MainMenu");
                 Time.timeScale = 1;
                 // SceneManager.LoadScene(SceneManager.GetSceneByName("HighScores")); TO DO << load scores screen after game over and quit
-
             }
+            break;
         }
     }
 
@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
         gameOverText.text = "Game Over";
         tryAgainText.text = "Press 'R' Key to Try Again or Esc to Quit";
         StartCoroutine(PauseTime());
-
     }
 
     // Custom coroutine (THESE THINGS ARE AWESOME!!!!) method to allow player SFX to finish before pausing for game over screen
