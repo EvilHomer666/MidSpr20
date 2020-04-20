@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    // Player SFX clips
     [SerializeField] AudioClip blowShield;
     [SerializeField] AudioClip recoverShield;
     [SerializeField] AudioClip speedDown;
     [SerializeField] AudioClip speedBoost;
     [SerializeField] AudioClip dangerWarning;
     [SerializeField] AudioClip collectPowerUp;
+
+    // Enemies SFX clips
+    [SerializeField] AudioClip enemyShipEngaged;
+    [SerializeField] AudioClip enemyShipDestroyed;
+
+    // Hazards SFX clips
+    [SerializeField] AudioClip largeAsteroidHit;
+    [SerializeField] AudioClip smallAsteroidHit;
+    [SerializeField] AudioClip largeAsteroidDestroyed;
+    [SerializeField] AudioClip smallAsteroidDestroyed;
 
     private AudioSource audioSource;
 
@@ -59,6 +70,36 @@ public class SoundManager : MonoBehaviour
     }
 
     // Enemy SFX
+    public void EnemyShipEngaged()
+    {
+        audioSource.PlayOneShot(enemyShipEngaged, 1.7F);
+        return;
+    }
+    public void EnemyShipDestroyed()
+    {
+        audioSource.PlayOneShot(enemyShipDestroyed, 1.7F);
+        return;
+    }
 
     // Hazards SFX
+    public void LargeAsteroidHit()
+    {
+        audioSource.PlayOneShot(largeAsteroidHit, 1.7F);
+        return;
+    }
+    public void SmallAsteroidHit()
+    {
+        audioSource.PlayOneShot(smallAsteroidHit, 1.7F);
+        return;
+    }
+    public void LargeAsteroidDestroyed()
+    {
+        audioSource.PlayOneShot(largeAsteroidDestroyed, 1.7F);
+        return;
+    }
+    public void SmallAsteroidDestroyed()
+    {
+        audioSource.PlayOneShot(smallAsteroidDestroyed, 1.7F);
+        return;
+    }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5703641578665962243}
   - component: {fileID: 5839260588150684323}
   - component: {fileID: 2701314333684216404}
+  - component: {fileID: 3905013002051563585}
   m_Layer: 0
   m_Name: meteorFull
   m_TagString: Hazard
@@ -77,11 +78,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b170dbfa4d3f428458277364ab469e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 200
   enemyHitPoints: 5
   holdsPowerUp: 0
   powerUpDrop: {fileID: 0}
   powerUpSpawn: {fileID: 0}
-  scoreValue: 200
 --- !u!114 &5839260588150684323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +109,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 2
+--- !u!23 &3905013002051563585
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6914487258033100540}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3963241562183589234, guid: 5263e8cedfb5b2c4997a02eb17c2c0a7, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &8965347291875206857
 GameObject:
   m_ObjectHideFlags: 0

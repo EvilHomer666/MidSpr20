@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Update timer in real time
+        // Update timer in real time to text
         time += Time.deltaTime;
         timerText.text = $"Time: {time.ToString("n2")}";
     }

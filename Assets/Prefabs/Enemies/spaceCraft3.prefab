@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1145044464100138498}
   - component: {fileID: 1955507539525477643}
   - component: {fileID: 1811296833649434863}
+  - component: {fileID: -3165418009800772910}
   m_Layer: 0
   m_Name: spaceCraft3
   m_TagString: EnemyShip
@@ -160,11 +161,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b170dbfa4d3f428458277364ab469e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 300
   enemyHitPoints: 1
   holdsPowerUp: 0
   powerUpDrop: {fileID: 0}
   powerUpSpawn: {fileID: 0}
-  scoreValue: 300
 --- !u!114 &1145044464100138498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,10 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392d2171ab5c2a2438490a50b9f61542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRate: 1
   enemyProjectile: {fileID: 5238377259683966199, guid: 840c4efffeb00874bac62b1e6f9f55f9,
     type: 3}
   enemyFireSpawn: {fileID: 655006383595901676}
-  fireRate: 1
   delay: 0.5
 --- !u!82 &1811296833649434863
 AudioSource:
@@ -291,6 +292,44 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!23 &-3165418009800772910
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191066816298102909}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3963241562183589234, guid: eb54a8aee4c3f004d9b715244c01081a, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &8420188981998224489
 GameObject:
   m_ObjectHideFlags: 0

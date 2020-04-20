@@ -20,12 +20,6 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnRandomEnemy", startDelay, spawnInterval);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     // Custom functions to spawn random enemies and power ups
 
     void SpawnRandomEnemy()

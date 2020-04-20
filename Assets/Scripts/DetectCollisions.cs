@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
-    // Enemy hit point variables
     [SerializeField] int scoreValue;
     [SerializeField] int enemyHitPoints;
     [SerializeField] bool holdsPowerUp;
@@ -12,6 +11,7 @@ public class DetectCollisions : MonoBehaviour
     [SerializeField] Transform powerUpSpawn;
     private int damageValue = 1;
     private ScoreManager scoreManager;
+    private PlayerAttackMotion projectileImpact;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,8 @@ public class DetectCollisions : MonoBehaviour
         // LOOKING IN SCRIPTS BUT NOT IN THE SAME GAME OBJECT!!!!
         GameObject scoreManagerObject = GameObject.FindWithTag("Score Manager");
         scoreManager = scoreManagerObject.GetComponent<ScoreManager>();
+
+        projectileImpact = FindObjectOfType<PlayerAttackMotion>();
     }
 
     // On trigger enter function over-ride - Destroy target and projectile on collision
@@ -33,6 +35,7 @@ public class DetectCollisions : MonoBehaviour
         while (other.gameObject.tag == "PlayerProjectile")
         {
             Debug.Log("Target Hit!");
+            // projectileImpact.ImpactFX(); // TO DO figure out how to instantiate impact particle effect and not lose it at destroy
             Destroy(other.gameObject);
             enemyHitPoints -= damageValue;
 
@@ -44,7 +47,7 @@ public class DetectCollisions : MonoBehaviour
                 Destroy(other.gameObject);
                 if (gameObject.tag == "HazardHP" || gameObject.tag == "HazardSP")
                 {
-                    // Spawn power-up drop at enemies last position upon destruction
+                    // Spawn power-up drops at enemies last position upon destruction
                     Instantiate(powerUpDrop, powerUpSpawn.position, powerUpSpawn.localRotation);
                 }
                 Destroy(gameObject);

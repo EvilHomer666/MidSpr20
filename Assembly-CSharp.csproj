@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\EnemyAttacks.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\LifeBar.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerAttackMotion.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />

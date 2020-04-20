@@ -7,25 +7,37 @@ public class DetectPlayerCollisions : MonoBehaviour
     [SerializeField] GameObject playerExplosion;
     private int enginesLv1 = 1;
     private int enginesLv2 = 2;
-    public int enginesLv3 = 3;
     private int enginesLv4 = 4;
     private int damageValue = 1;
     private GameManager gameManager;
     private SoundManager soundManager;
-    public int playerCurrentHitPoints;
+    private PlayerController playerControllerSpeedReset;
+    public int enginesLv3 = 3;
     public int playerMaxHitPoints;
+    public int playerCurrentHitPoints;
+    public int speedPenalty = 5;
+    public LifeBar lifeBar;
+
     // private PlayerController polarityModifierSwitch; // << TO DO to be implemented with player's ability to use enemy fire against them
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // Initialize Manager references
+        // Initialize references
         GameObject gameManagerObject = GameObject.FindWithTag("GameManager");
         gameManager = gameManagerObject.GetComponent<GameManager>();
 
         GameObject soundManagerObject = GameObject.FindWithTag("SoundManager");
         soundManager = soundManagerObject.GetComponent<SoundManager>();
+
+        lifeBar = FindObjectOfType<LifeBar>();
+
+        playerControllerSpeedReset = FindObjectOfType<PlayerController>();
+
+        // Initialize Life-Hit points
+        playerCurrentHitPoints = playerMaxHitPoints;
+        lifeBar.SetMaxLife(playerMaxHitPoints);
 
         // polarityModifierSwitch = FindObjectOfType<PlayerController>(); // << TO DO to be implemented with player's ability to use enemy fire against them
     }
@@ -64,6 +76,7 @@ public class DetectPlayerCollisions : MonoBehaviour
                 GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Play();
+                playerControllerSpeedReset.playerSpeed = speedPenalty;
             }
 
             // Player Game Over check
@@ -88,6 +101,7 @@ public class DetectPlayerCollisions : MonoBehaviour
         {
             Debug.Log("Collision!");
             playerCurrentHitPoints -= damageValue;
+            lifeBar.SetLife(playerCurrentHitPoints);
             Destroy(other.gameObject);
             soundManager.PlayerShieldDamage();
 
