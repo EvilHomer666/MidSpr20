@@ -14,7 +14,7 @@ public class PowerUp : MonoBehaviour
     private SoundManager soundManager;
     private DetectPlayerCollisions playerCollisions;
     private PlayerController playerControllerSpeedBoost;
-    private float enemySpawnInterval = 3;
+    private float enemySpawnInterval = 0.25f;
     private float playerSpeedCap = 25;
 
     // Start is called before the first frame update
@@ -49,7 +49,7 @@ public class PowerUp : MonoBehaviour
         if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints < playerCollisions.playerMaxHitPoints)
         {
             playerCollisions.playerCurrentHitPoints += healthValue;
-            spawnManager.spawnInterval -= enemySpawnInterval;
+            spawnManager.spawnInterval *= -enemySpawnInterval;
             soundManager.PlayerShieldUp();
             scoreManager.IncrementScore(scoreValue);
             Destroy(gameObject);

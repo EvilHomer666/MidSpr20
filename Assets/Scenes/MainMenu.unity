@@ -186,7 +186,10 @@ MonoBehaviour:
 
     \u2022<indent=1em>Stage Track "RailJ by etDeceased Superior Technician. http://www.nosoapradio.us</indent>
 
-    \u2022<indent=1em>Boss 3D model by Rxanadu https://opengameart.org/content/floating-tank</indent>'
+    \u2022<indent=1em>Boss 3D model by Rxanadu https://opengameart.org/content/floating-tank</indent>
+
+    \u2022<indent=1em>Particle Effect Pack by Gaph: https://assetstore.unity.com/packages/vfx/particles/spells/48-particle-effect-pack-13998
+    </indent>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4f575a60791181748aa3257b60b4dc81, type: 2}
   m_sharedMaterial: {fileID: -3715981051741601035, guid: 4f575a60791181748aa3257b60b4dc81,

@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] Text scoreText;
+    [SerializeField] Text timerText;
     private int score;
+    private float time;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +16,14 @@ public class ScoreManager : MonoBehaviour
         // Set score defaults
         score = 0;
         UpdateScoreText();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Update timer in real time
+        time += Time.deltaTime;
+        timerText.text = $"Time: {time.ToString("n2")}";
     }
 
     // Add score value and update text
