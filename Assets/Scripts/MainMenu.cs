@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-            SceneManager.LoadScene("Lev01");
+        SceneManager.LoadScene("Lev01");
     }
 
     // Custom methods to show credits, main menu, start & quit game

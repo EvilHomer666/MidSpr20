@@ -12,10 +12,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip dangerWarning;
     [SerializeField] AudioClip collectPowerUp;
 
+    // TO DO Optimize how these area accessed in DetectsCollisions script
     // Enemies SFX clips
     [SerializeField] AudioClip enemyShipEngaged;
     [SerializeField] AudioClip enemyShipDestroyed;
-
     // Hazards SFX clips
     [SerializeField] AudioClip largeAsteroidHit;
     [SerializeField] AudioClip smallAsteroidHit;
@@ -28,12 +28,6 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // Custom functions to access sound FXs
@@ -72,19 +66,19 @@ public class SoundManager : MonoBehaviour
     // Enemy SFX
     public void EnemyShipEngaged()
     {
-        audioSource.PlayOneShot(enemyShipEngaged, 1.7F);
+        audioSource.PlayOneShot(enemyShipEngaged, 2.0F);
         return;
     }
     public void EnemyShipDestroyed()
     {
-        audioSource.PlayOneShot(enemyShipDestroyed, 1.7F);
+        audioSource.PlayOneShot(enemyShipDestroyed, 2.0F);
         return;
     }
 
     // Hazards SFX
     public void LargeAsteroidHit()
     {
-        audioSource.PlayOneShot(largeAsteroidHit, 1.7F);
+        audioSource.PlayOneShot(largeAsteroidHit, 1.0F);
         return;
     }
     public void SmallAsteroidHit()
@@ -94,7 +88,7 @@ public class SoundManager : MonoBehaviour
     }
     public void LargeAsteroidDestroyed()
     {
-        audioSource.PlayOneShot(largeAsteroidDestroyed, 1.7F);
+        audioSource.PlayOneShot(largeAsteroidDestroyed, 3.0F);
         return;
     }
     public void SmallAsteroidDestroyed()

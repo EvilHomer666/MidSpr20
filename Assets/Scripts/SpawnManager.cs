@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     private float spawnPosX = 15f;
     private float spawnRangeY = 7f;
     private float spawnPosZ = -9.3f;
-    public float spawnInterval = 0.5f;
+    public float spawnInterval = 1.25f;
 
     // Spawn manager array for enemies
     public GameObject[] enemyPrefabs;
@@ -21,7 +21,6 @@ public class SpawnManager : MonoBehaviour
     }
 
     // Custom functions to spawn random enemies and power ups
-
     void SpawnRandomEnemy()
     {
         // Randomly generate enemies

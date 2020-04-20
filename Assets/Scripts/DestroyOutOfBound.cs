@@ -4,19 +4,6 @@ using UnityEngine;
 
 public class DestroyOutOfBound : MonoBehaviour
 { 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Custom method to destroy!!!!!
     private void OnTriggerExit(Collider other)
     {

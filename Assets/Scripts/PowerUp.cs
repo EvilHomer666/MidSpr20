@@ -43,7 +43,7 @@ public class PowerUp : MonoBehaviour
         transform.Translate(Vector3.left * Time.deltaTime * powerUpSpeed);
     }
 
-    // On trigger enter function over-ride - Destroy power up on collision player NOTE TO SELF: None of this will work without colliders set to trigger.
+    // On trigger enter function over-ride - Destroy power up on collision player NOTE TO SELF: None of this will work without colliders set to trigger - must revise, it's buggy.
     private void OnTriggerEnter(Collider other)
     {
         if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints < playerCollisions.playerMaxHitPoints)
@@ -56,16 +56,17 @@ public class PowerUp : MonoBehaviour
             Debug.Log("Power Up!");
         }
 
-        else if(gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints >= playerCollisions.playerMaxHitPoints)
+        else if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints <= playerCollisions.playerMaxHitPoints)
         {
-            soundManager.PlayerCollectedPowerUp();
+            playerCollisions.playerCurrentHitPoints = playerCollisions.playerMaxHitPoints;
             spawnManager.spawnInterval *= enemySpawnInterval;
+            soundManager.PlayerCollectedPowerUp();
             scoreManager.IncrementScore(scoreValue);
             Destroy(gameObject);
             Debug.Log("Pick Up!");
         }
 
-        if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed < playerSpeedCap)
+        else if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed < playerSpeedCap)
         {
             playerControllerSpeedBoost.UpdatePlayerSpeed(speedBoostValue);
             spawnManager.spawnInterval *= enemySpawnInterval;
@@ -75,10 +76,11 @@ public class PowerUp : MonoBehaviour
             Debug.Log("Speed Up!");
         }
 
-        else if(gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed >= playerSpeedCap)
+        else if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed <= playerSpeedCap)
         {
-            soundManager.PlayerCollectedPowerUp();
+            playerControllerSpeedBoost.playerSpeed = playerSpeedCap;
             spawnManager.spawnInterval *= enemySpawnInterval;
+            soundManager.PlayerCollectedPowerUp();
             scoreManager.IncrementScore(scoreValue);
             Destroy(gameObject);
             Debug.Log("Pick Up!");

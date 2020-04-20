@@ -15,7 +15,7 @@ public class DetectPlayerCollisions : MonoBehaviour
     public int enginesLv3 = 3;
     public int playerMaxHitPoints;
     public int playerCurrentHitPoints;
-    public int speedPenalty = 5;
+    public int speedReset = 10;
     public LifeBar lifeBar;
 
     // private PlayerController polarityModifierSwitch; // << TO DO to be implemented with player's ability to use enemy fire against them
@@ -76,7 +76,6 @@ public class DetectPlayerCollisions : MonoBehaviour
                 GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Play();
-                playerControllerSpeedReset.playerSpeed = speedPenalty;
             }
 
             // Player Game Over check

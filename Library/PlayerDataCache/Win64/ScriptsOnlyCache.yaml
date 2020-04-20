@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - EnemyAttacks
     - EnemyMovement
     - GameManager
+    - LifeBar
     - MainMenu
     - PlayerAttackMotion
     - PlayerController
@@ -55,6 +56,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Lev01.unity:
@@ -95,61 +97,67 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9756}
     - Class: 114
-      Script: {instanceID: 9776}
+      Script: {instanceID: 9778}
     - Class: 114
-      Script: {instanceID: 9874}
+      Script: {instanceID: 9876}
     - Class: 114
-      Script: {instanceID: 9878}
+      Script: {instanceID: 9880}
     - Class: 114
-      Script: {instanceID: 9920}
+      Script: {instanceID: 9922}
     - Class: 114
-      Script: {instanceID: 9946}
+      Script: {instanceID: 9948}
     - Class: 114
-      Script: {instanceID: 9952}
+      Script: {instanceID: 9954}
     - Class: 114
-      Script: {instanceID: 10118}
+      Script: {instanceID: 9994}
     - Class: 114
-      Script: {instanceID: 10122}
+      Script: {instanceID: 10120}
     - Class: 114
-      Script: {instanceID: 10338}
+      Script: {instanceID: 10124}
     - Class: 114
-      Script: {instanceID: 10344}
+      Script: {instanceID: 10340}
     - Class: 114
-      Script: {instanceID: 10410}
+      Script: {instanceID: 10346}
     - Class: 114
-      Script: {instanceID: 10426}
+      Script: {instanceID: 10412}
     - Class: 114
-      Script: {instanceID: 10460}
+      Script: {instanceID: 10428}
     - Class: 114
-      Script: {instanceID: 10588}
+      Script: {instanceID: 10462}
     - Class: 114
-      Script: {instanceID: 10684}
+      Script: {instanceID: 10590}
     - Class: 114
-      Script: {instanceID: 10710}
+      Script: {instanceID: 10688}
     - Class: 114
-      Script: {instanceID: 10844}
+      Script: {instanceID: 10714}
     - Class: 114
-      Script: {instanceID: 10874}
+      Script: {instanceID: 10776}
     - Class: 114
-      Script: {instanceID: 11002}
+      Script: {instanceID: 10850}
     - Class: 114
-      Script: {instanceID: 11064}
+      Script: {instanceID: 10880}
     - Class: 114
-      Script: {instanceID: 11128}
+      Script: {instanceID: 11008}
     - Class: 114
-      Script: {instanceID: 11296}
+      Script: {instanceID: 11070}
     - Class: 114
-      Script: {instanceID: 11550}
+      Script: {instanceID: 11134}
     - Class: 114
-      Script: {instanceID: 11584}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11620}
+      Script: {instanceID: 11556}
     - Class: 114
-      Script: {instanceID: 11662}
+      Script: {instanceID: 11590}
     - Class: 114
-      Script: {instanceID: 11672}
+      Script: {instanceID: 11626}
     - Class: 114
-      Script: {instanceID: 11734}
+      Script: {instanceID: 11668}
+    - Class: 114
+      Script: {instanceID: 11678}
+    - Class: 114
+      Script: {instanceID: 11716}
+    - Class: 114
+      Script: {instanceID: 11740}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -210,37 +218,37 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9776}
+      Script: {instanceID: 9778}
     - Class: 114
-      Script: {instanceID: 9992}
+      Script: {instanceID: 9994}
     - Class: 114
-      Script: {instanceID: 10236}
+      Script: {instanceID: 10238}
     - Class: 114
-      Script: {instanceID: 10410}
+      Script: {instanceID: 10412}
     - Class: 114
-      Script: {instanceID: 10434}
+      Script: {instanceID: 10436}
     - Class: 114
-      Script: {instanceID: 10638}
+      Script: {instanceID: 10642}
     - Class: 114
-      Script: {instanceID: 10710}
+      Script: {instanceID: 10714}
     - Class: 114
-      Script: {instanceID: 10802}
+      Script: {instanceID: 10808}
     - Class: 114
-      Script: {instanceID: 10850}
+      Script: {instanceID: 10856}
     - Class: 114
-      Script: {instanceID: 10874}
+      Script: {instanceID: 10880}
     - Class: 114
-      Script: {instanceID: 11036}
+      Script: {instanceID: 11042}
     - Class: 114
-      Script: {instanceID: 11050}
+      Script: {instanceID: 11056}
     - Class: 114
-      Script: {instanceID: 11230}
+      Script: {instanceID: 11236}
     - Class: 114
-      Script: {instanceID: 11296}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 11452}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11672}
+      Script: {instanceID: 11678}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -264,6 +272,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Postprocessing.Runtime.dll
     namespaceName: UnityEngine.Rendering.PostProcessing
     className: PostProcessLayer
+  - hash:
+      serializedVersion: 2
+      Hash: 5368b7e7dcd90b879d5fef2f71dd20a4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DetectUnknownControllerMappings
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -332,7 +346,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: fe8e924d277863cdf66571268aa9e6d3
+      Hash: f242827cf1a352459cbc2e2d95d543ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyAttacks
@@ -500,7 +514,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: f884b95576477f0a4a2cb47df09ff26b
+      Hash: fc857ec6e6bf6fcefa126f1ddf991e8d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnManager
@@ -638,6 +652,12 @@ ScriptsOnlyBuild:
     className: PostProcessDebug
   - hash:
       serializedVersion: 2
+      Hash: 1028c39545bcfa841aaab54121e69a47
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LifeBar
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -656,7 +676,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 6075b87729e88ccd16863dcf08c01e65
+      Hash: 4b3857358363ee2edbe7a2f9fab7fcf6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoundManager
@@ -686,7 +706,7 @@ ScriptsOnlyBuild:
     className: csShowAllEffect
   - hash:
       serializedVersion: 2
-      Hash: da12c0ecec7edbbe7e932930280fb7b3
+      Hash: 58315e3b2bbe8bfb8feba55131b98929
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerAttackMotion
@@ -734,7 +754,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 82e6c9f8d163b06d8a008d72159bd106
+      Hash: 3b4d465e4bfa66bdf4c1b290834a5dd4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PowerUp
@@ -752,7 +772,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: a776b225cfcbd57ec02ba10e45237c5c
+      Hash: 814c29b8daf5422da352c6732be844bf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DetectCollisions
@@ -848,7 +868,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 44086c47d9985c8a2acf0f4ddb3e2d3e
+      Hash: 61111947413b1dceda4f5a55dc1c7879
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -878,7 +898,7 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 027a0c2988b524d1b2566e6d6537d1c2
+      Hash: f277ddab79cd89afce2b4e91b8c64cbd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DetectPlayerCollisions
@@ -920,7 +940,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: fd603770689195d8c21e05ad28422d62
+      Hash: dbe03553c5f2a7cae5bf952be7e11d90
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScoreManager
@@ -930,14 +950,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 5368b7e7dcd90b879d5fef2f71dd20a4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DetectUnknownControllerMappings
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Lev01.unity
-  playerPath: E:/My Documents/GitHub/Builds/Build_Win_03_1/MetalBlast - MidSpr20.exe
+  playerPath: E:/My Documents/GitHub/Builds/Build_Win_04/MetalBlast - MidSpr20.exe
