@@ -16,7 +16,6 @@ public class PowerUp : MonoBehaviour
     private PlayerController playerControllerSpeedBoost;
     private float enemySpawnInterval = 0.8f;
     private float playerSpeedCap = 25;
-    public LifeBar lifeBar;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +34,6 @@ public class PowerUp : MonoBehaviour
         playerCollisions = FindObjectOfType<DetectPlayerCollisions>();
 
         playerControllerSpeedBoost = FindObjectOfType<PlayerController>();
-
-        lifeBar = FindObjectOfType<LifeBar>();
     }
 
     // Update is called once per frame
@@ -52,7 +49,6 @@ public class PowerUp : MonoBehaviour
         if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints < playerCollisions.playerMaxHitPoints)
         {
             playerCollisions.playerCurrentHitPoints += healthValue;
-            lifeBar.SetLife(playerCollisions.playerCurrentHitPoints);
             spawnManager.spawnInterval *= enemySpawnInterval;
             soundManager.PlayerShieldUp();
             scoreManager.IncrementScore(scoreValue);
@@ -60,7 +56,7 @@ public class PowerUp : MonoBehaviour
             Debug.Log("Power Up!");
         }
 
-        else if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints == playerCollisions.playerMaxHitPoints)
+        else if (gameObject.tag == "Health" && other.gameObject.tag == "Player" && playerCollisions.playerCurrentHitPoints <= playerCollisions.playerMaxHitPoints)
         {
             playerCollisions.playerCurrentHitPoints = playerCollisions.playerMaxHitPoints;
             spawnManager.spawnInterval *= enemySpawnInterval;
@@ -70,7 +66,7 @@ public class PowerUp : MonoBehaviour
             Debug.Log("Pick Up!");
         }
 
-        if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed < playerSpeedCap)
+        else if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed < playerSpeedCap)
         {
             playerControllerSpeedBoost.UpdatePlayerSpeed(speedBoostValue);
             spawnManager.spawnInterval *= enemySpawnInterval;
@@ -80,7 +76,7 @@ public class PowerUp : MonoBehaviour
             Debug.Log("Speed Up!");
         }
 
-        else if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed == playerSpeedCap)
+        else if (gameObject.tag == "Speed" && other.gameObject.tag == "Player" && playerControllerSpeedBoost.playerSpeed <= playerSpeedCap)
         {
             playerControllerSpeedBoost.playerSpeed = playerSpeedCap;
             spawnManager.spawnInterval *= enemySpawnInterval;
