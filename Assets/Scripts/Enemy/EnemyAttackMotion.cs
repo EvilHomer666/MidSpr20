@@ -20,17 +20,7 @@ public class EnemyAttackMotion : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
-        if (homingProjectile == false && player != null)
-        {
-            //player = GameObject.FindGameObjectWithTag("Player").transform;
-
-            target = (player.transform.position - transform.position).normalized * speedLv01;
-
-            transform.LookAt(target);
-            transform.position += target * speedLv01 * Time.deltaTime;
-        }
-
+    { 
         if (homingProjectile == true && player != null)
         {
             // Homing projectile

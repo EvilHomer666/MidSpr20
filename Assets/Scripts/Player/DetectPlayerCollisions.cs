@@ -5,17 +5,16 @@ using UnityEngine;
 public class DetectPlayerCollisions : MonoBehaviour
 {
     [SerializeField] GameObject playerExplosion;
-    private int enginesLv1 = 1;
     private int enginesLv2 = 2;
+    private int enginesLv3 = 3;
     private int enginesLv4 = 4;
     private int damageValue = 1;
     private GameManager gameManager;
     private SoundManager soundManager;
     private PlayerController playerControllerSpeedReset;
-    public int enginesLv3 = 3;
+    public int enginesLv1 = 1;
     public int playerMaxHitPoints;
     public int playerCurrentHitPoints;
-    public int speedReset = 10;
     public LifeBar lifeBar;
 
     // private PlayerController polarityModifierSwitch; // << TO DO to be implemented with player's ability to use enemy fire against them
@@ -54,7 +53,7 @@ public class DetectPlayerCollisions : MonoBehaviour
                 GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Stop();
-               // polarityModifierSwitch.polarityModifier = true; // << TO DO to be implemented with player's ability to use enemy fire against them
+                // polarityModifierSwitch.polarityModifier = true; // << TO DO to be implemented with player's ability to use enemy fire against them
             }
             if (playerCurrentHitPoints == enginesLv3)
             {
@@ -76,6 +75,7 @@ public class DetectPlayerCollisions : MonoBehaviour
                 GameObject.Find("enginesLv3").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv2").GetComponent<ParticleSystem>().Stop();
                 GameObject.Find("enginesLv1").GetComponent<ParticleSystem>().Play();
+                playerControllerSpeedReset.playerSpeed = playerControllerSpeedReset.speedReset;
             }
 
             // Player Game Over check

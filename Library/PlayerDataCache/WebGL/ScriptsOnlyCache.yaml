@@ -10,15 +10,16 @@ ScriptsOnlyBuild:
     - EnemyAttacks
     - EnemyMovement
     - GameManager
+    - HealthPowerUp
     - LifeBar
     - MainMenu
     - PlayerAttackMotion
     - PlayerController
-    - PowerUp
     - RepeatBackground
     - ScoreManager
     - SoundManager
     - SpawnManager
+    - SpeedPowerUp
     - SpinEffect
     - TitleTumble
     - csDestroyEffect
@@ -115,49 +116,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10124}
     - Class: 114
-      Script: {instanceID: 10340}
+      Script: {instanceID: 10342}
     - Class: 114
-      Script: {instanceID: 10346}
+      Script: {instanceID: 10348}
     - Class: 114
-      Script: {instanceID: 10412}
+      Script: {instanceID: 10416}
     - Class: 114
-      Script: {instanceID: 10428}
+      Script: {instanceID: 10432}
     - Class: 114
-      Script: {instanceID: 10462}
+      Script: {instanceID: 10466}
     - Class: 114
-      Script: {instanceID: 10590}
+      Script: {instanceID: 10594}
     - Class: 114
-      Script: {instanceID: 10688}
+      Script: {instanceID: 10692}
     - Class: 114
-      Script: {instanceID: 10714}
+      Script: {instanceID: 10720}
     - Class: 114
-      Script: {instanceID: 10776}
+      Script: {instanceID: 10784}
     - Class: 114
-      Script: {instanceID: 10850}
+      Script: {instanceID: 10858}
     - Class: 114
-      Script: {instanceID: 10880}
+      Script: {instanceID: 10888}
     - Class: 114
-      Script: {instanceID: 11008}
+      Script: {instanceID: 11016}
     - Class: 114
-      Script: {instanceID: 11070}
+      Script: {instanceID: 11046}
     - Class: 114
-      Script: {instanceID: 11134}
+      Script: {instanceID: 11142}
     - Class: 114
-      Script: {instanceID: 11302}
+      Script: {instanceID: 11166}
     - Class: 114
-      Script: {instanceID: 11556}
+      Script: {instanceID: 11312}
     - Class: 114
-      Script: {instanceID: 11590}
+      Script: {instanceID: 11566}
     - Class: 114
-      Script: {instanceID: 11626}
+      Script: {instanceID: 11600}
     - Class: 114
-      Script: {instanceID: 11668}
+      Script: {instanceID: 11636}
     - Class: 114
       Script: {instanceID: 11678}
     - Class: 114
-      Script: {instanceID: 11716}
+      Script: {instanceID: 11688}
     - Class: 114
-      Script: {instanceID: 11740}
+      Script: {instanceID: 11726}
+    - Class: 114
+      Script: {instanceID: 11750}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -224,31 +227,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10238}
     - Class: 114
-      Script: {instanceID: 10412}
+      Script: {instanceID: 10416}
     - Class: 114
-      Script: {instanceID: 10436}
+      Script: {instanceID: 10440}
     - Class: 114
-      Script: {instanceID: 10642}
+      Script: {instanceID: 10646}
     - Class: 114
-      Script: {instanceID: 10714}
+      Script: {instanceID: 10720}
     - Class: 114
-      Script: {instanceID: 10808}
+      Script: {instanceID: 10816}
     - Class: 114
-      Script: {instanceID: 10856}
+      Script: {instanceID: 10864}
     - Class: 114
-      Script: {instanceID: 10880}
+      Script: {instanceID: 10888}
     - Class: 114
-      Script: {instanceID: 11042}
+      Script: {instanceID: 11052}
     - Class: 114
-      Script: {instanceID: 11056}
+      Script: {instanceID: 11066}
     - Class: 114
-      Script: {instanceID: 11236}
+      Script: {instanceID: 11246}
     - Class: 114
-      Script: {instanceID: 11302}
+      Script: {instanceID: 11312}
     - Class: 114
-      Script: {instanceID: 11458}
+      Script: {instanceID: 11468}
     - Class: 114
-      Script: {instanceID: 11678}
+      Script: {instanceID: 11688}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -502,6 +505,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: fcfb522b8488e3424ccbef803bded656
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Game.ScoreboardData
+    className: Scoreboard
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -530,6 +539,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpinEffect
+  - hash:
+      serializedVersion: 2
+      Hash: f9cfba07333553e93e99655aaaf7eeb3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Game.ScoreboardData
+    className: ScoreboardEntryUI
   - hash:
       serializedVersion: 2
       Hash: 7e6ed836cbaa230e56d6a2bbae1b9bb5
@@ -676,7 +691,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 4b3857358363ee2edbe7a2f9fab7fcf6
+      Hash: 123c9e57ce1f7fdf8bc4c3610f4d7e1c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoundManager
@@ -724,6 +739,12 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
+      Hash: 96c356fc7554f746dfe50fcd9dd78fa5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HealthPowerUp
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -754,12 +775,6 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 3b4d465e4bfa66bdf4c1b290834a5dd4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PowerUp
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -776,6 +791,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DetectCollisions
+  - hash:
+      serializedVersion: 2
+      Hash: bba3b019b2ae8195427f9fe9c45623c4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpeedPowerUp
   - hash:
       serializedVersion: 2
       Hash: 3b760e6526e13f7504f59e210145899a
@@ -868,7 +889,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 61111947413b1dceda4f5a55dc1c7879
+      Hash: c5416691c86296ae6ed51ac3e728706d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -898,7 +919,7 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
-      Hash: f277ddab79cd89afce2b4e91b8c64cbd
+      Hash: 6b1ba522a48e0030c1e14a0b7b88700a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DetectPlayerCollisions
@@ -950,8 +971,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyAi
   platform: 20
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Lev01.unity
-  playerPath: E:/My Documents/GitHub/Builds/Build_Web_04
+  playerPath: E:/My Documents/GitHub/Builds/Build_Web_05

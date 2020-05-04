@@ -11,8 +11,10 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private SoundManager soundManager;
-    private AudioSource audioSource;
     public float playerSpeed;
+    public float playerSpeedCap = 25;
+    public int speedReset = 10;
+
 
     // public bool polarityModifier; // << TO DO Add player ability to use enemy fire against them
 
@@ -22,6 +24,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject soundManagerObject = GameObject.FindWithTag("SoundManager");
+        soundManager = soundManagerObject.GetComponent<SoundManager>();
+
         playerSpeed = 10;
         //  polarityModifier = false; // << TO DO Add player ability to use enemy fire against them
     }
@@ -61,7 +66,7 @@ public class PlayerController : MonoBehaviour
             {
                 Instantiate(projectile, cannonSpawn.position, cannonSpawn.rotation);
             }
-            GetComponent<AudioSource>().Play();
+            soundManager.PlayerFireLaserLv1();
         }
     }
 

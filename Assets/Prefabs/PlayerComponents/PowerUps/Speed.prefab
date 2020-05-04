@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5457605707962423938}
   - component: {fileID: 8505190281981982281}
   - component: {fileID: 2752489685320148197}
-  - component: {fileID: 1023861373536903488}
+  - component: {fileID: 298648239392501774}
   m_Layer: 0
   m_Name: SP
   m_TagString: Health
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773142522754371003}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -9.2}
+  m_LocalPosition: {x: 0, y: 0, z: -9.2}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 2634817474163664550}
@@ -93,7 +93,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4.43025
   m_Center: {x: 4.999999, y: 0.5999991, z: 5}
---- !u!114 &1023861373536903488
+--- !u!114 &298648239392501774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,13 +102,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1773142522754371003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bf8057a533036e41b2a6d5d65541aa3, type: 3}
+  m_Script: {fileID: 11500000, guid: a5291f1b11b474946989d5603e0b885d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostValue: 0
-  powerUpSpeed: 2
-  scoreValue: 0
-  healthValue: 1
+  speedBoostValue: 5
+  powerUpLocalSpeed: 3
+  scoreValue: 1500
 --- !u!1 &6590288448442052280
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,8 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2634817474163664550}
-  - component: {fileID: 4585815557592049615}
-  - component: {fileID: -3862227784866972018}
+  - component: {fileID: -5072102138286727055}
   m_Layer: 0
   m_Name: Speed
   m_TagString: Speed
@@ -142,24 +140,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &4585815557592049615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6590288448442052280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bf8057a533036e41b2a6d5d65541aa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedBoostValue: 5
-  powerUpSpeed: 2
-  scoreValue: 1500
-  healthValue: 0
---- !u!65 &-3862227784866972018
-BoxCollider:
+--- !u!135 &-5072102138286727055
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -169,5 +151,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 3.5551178
+  m_Center: {x: 3.470614, y: -5.842905e-14, z: -5.694735}
